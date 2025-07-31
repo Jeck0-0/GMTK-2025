@@ -7,6 +7,7 @@ using UnityEngine;
 public class BGIconSpawner : MonoBehaviour
 {
     [SerializeField] protected GameObject iconPrefab;
+    [SerializeField] protected float distance;
     [SerializeField] protected Vector2 offset;
     [SerializeField] protected List<Vector2Int> ignoreTiles;
     [SerializeField] protected Vector2Int size;
@@ -26,7 +27,8 @@ public class BGIconSpawner : MonoBehaviour
 
     private void UpdateTiles()
     {
-        var cursorPos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
+        //var cursorPos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
+        var cursorPos = Player.instance.transform.position;
         cursorPos.z = transform.position.z;
 
         foreach (var tile in grid)
@@ -58,7 +60,7 @@ public class BGIconSpawner : MonoBehaviour
         {
             for (int y = -size.y / 2; y < size.y / 2; y++)
             {
-                Vector3 spawnPos = new Vector3(x + offset.x, y + offset.y, 0);
+                Vector3 spawnPos = new Vector3(x * distance + offset.x, y * distance + offset.y, 0);
                 p = new Vector2Int(x, y);
                 if (!ignoreTiles.Contains(p))
                 {
