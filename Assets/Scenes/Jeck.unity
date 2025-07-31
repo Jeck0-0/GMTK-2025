@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iconPrefab: {fileID: 4986450046086350146, guid: b561b55e19f486946aadc6ad91325fea, type: 3}
+  distance: 2
   offset: {x: 0, y: 0}
   ignoreTiles: []
   size: {x: 50, y: 50}
@@ -597,7 +598,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.18767191, g: 0.1709238, b: 0.21698111, a: 0}
+  m_BackGroundColor: {r: 0.15718552, g: 0.14457993, b: 0.1792453, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -909,7 +910,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: a9aea73f0000000021617c93b5423aef
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
