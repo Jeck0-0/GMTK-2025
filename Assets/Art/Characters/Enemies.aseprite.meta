@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638895907677566427
+  platformSettingsDirtyTick: 638896011683237881
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -139,7 +139,7 @@ ScriptedImporter:
       y: 4
       width: 123
       height: 120
-    spriteID: ebfdf45481a8c6d46bd648a0a3d42047
+    spriteID: bed58fd2249322a4997635fc82c30109
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +161,7 @@ ScriptedImporter:
       y: 111
       width: 5
       height: 2
-    spriteID: 22f7e5621d88a95418d5746778ae90b0
+    spriteID: 0326c53d7fa37784d992498b84d42bbe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,7 +182,7 @@ ScriptedImporter:
       y: 110
       width: 12
       height: 14
-    spriteID: d8ee884eb8f17d6478b2a008ac158e23
+    spriteID: 9e2ff2b2c7c17054eaf8b32d75fede93
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -203,7 +203,7 @@ ScriptedImporter:
       y: 109
       width: 11
       height: 11
-    spriteID: e5bde44336e71dd40b1754ac743d9056
+    spriteID: 0a639e7de1f6b6e4a9151a2ed4b1c78e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -223,8 +223,8 @@ ScriptedImporter:
       x: 84
       y: 109
       width: 11
-      height: 11
-    spriteID: e3ad67bf9ede3194caee6429413929a1
+      height: 12
+    spriteID: e755baade0d1c7f4b98b1e3070a78d0c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -245,7 +245,7 @@ ScriptedImporter:
       y: 109
       width: 9
       height: 11
-    spriteID: 75f379bdb1806434ea74337e3baeeab0
+    spriteID: 5efcbac15431b9e4e8a1dcf345dfa1c9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -263,10 +263,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 118
-      y: 108
+      y: 109
       width: 11
-      height: 12
-    spriteID: 9e21a3ac94f02e246a77e4e15a727367
+      height: 11
+    spriteID: 47e2b6ccb2bc1db49b96a6dc65643174
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -287,7 +287,7 @@ ScriptedImporter:
       y: 102
       width: 12
       height: 6
-    spriteID: 1744e52da56f0b94dad46f3dfdf0479a
+    spriteID: ff8bfe5599abf94449da9a6b63543adc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -308,7 +308,7 @@ ScriptedImporter:
       y: 99
       width: 8
       height: 6
-    spriteID: cd6784d3f68685a4fbb5df5a6a84a781
+    spriteID: cfda93d37708a5e4287f21edb4ee2bd8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -329,7 +329,7 @@ ScriptedImporter:
       y: 101
       width: 10
       height: 4
-    spriteID: fc3052950ce98b54793b4d814e861576
+    spriteID: dc6eabd31500c934e9f75a35eb1f6d21
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -350,7 +350,7 @@ ScriptedImporter:
       y: 95
       width: 8
       height: 5
-    spriteID: 9eed9853ae5441044b371bb79777f035
+    spriteID: eb53051f2af0f5740b8d47dfa9c15064
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -371,7 +371,7 @@ ScriptedImporter:
       y: 72
       width: 5
       height: 8
-    spriteID: 4d16d39a4955bc947aca4d1ba385dfb0
+    spriteID: 3130d1f13b68ab847957a8e96e87db09
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -392,7 +392,7 @@ ScriptedImporter:
       y: 72
       width: 5
       height: 8
-    spriteID: 9ef4b1de9c650f4449c6d3dd83549f7d
+    spriteID: 3f8e3b0c7e33d124484b67a84ae34f2c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -413,7 +413,7 @@ ScriptedImporter:
       y: 62
       width: 5
       height: 8
-    spriteID: 5e64294951d2d3a4c8a3bd73167423b0
+    spriteID: c1ae1cb5d9674bb42acba908e9849082
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -434,7 +434,7 @@ ScriptedImporter:
       y: 55
       width: 4
       height: 3
-    spriteID: 4d8b39edee614214ba8b526413ef9563
+    spriteID: 7a3ca7831d6f39a4f9699475c106e124
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -455,7 +455,7 @@ ScriptedImporter:
       y: 61
       width: 5
       height: 8
-    spriteID: d5f20f4bfeef6ea4b91cae8337c57396
+    spriteID: 67a6fe1eab112c347959d070486a1666
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -476,28 +476,7 @@ ScriptedImporter:
       y: 61
       width: 7
       height: 8
-    spriteID: 90b4eecb6f8e25848b46d4fc71bc37fd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Enemies_16
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 29
-      y: 16
-      width: 10
-      height: 7
-    spriteID: b18b2410ea890bf4d8538aee012d0c5c
+    spriteID: 1c067060d3e1c1b418bcd4dacf8fa272
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -518,7 +497,7 @@ ScriptedImporter:
       y: 43
       width: 20
       height: 5
-    spriteID: b453dd4721264df4985c2e8408747b6f
+    spriteID: 44ecb202938cd2a438d0b3076bfc5d21
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -539,7 +518,7 @@ ScriptedImporter:
       y: 43
       width: 21
       height: 5
-    spriteID: ff03cae16c6790a40bf173bd01065c89
+    spriteID: 5e168a4f0e8ff5f499962d00f256c5bd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -560,7 +539,7 @@ ScriptedImporter:
       y: 42
       width: 4
       height: 9
-    spriteID: 15292a72d00898340b7640194b4b6a8b
+    spriteID: c7a8ac1c88d1ddd4c91fdb047746fc72
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -581,7 +560,7 @@ ScriptedImporter:
       y: 42
       width: 9
       height: 9
-    spriteID: d6aa4c98574f65d4086021e9b7734030
+    spriteID: cb16f9b5309428e48a852fa887a2e7d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -602,7 +581,7 @@ ScriptedImporter:
       y: 32
       width: 8
       height: 7
-    spriteID: 7af02c360b4658e4eb3e3b11217f626a
+    spriteID: 983278289ae12e544a7270f83c215b01
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -611,7 +590,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Enemies_22
+  - name: Walk7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -619,11 +598,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 18
+      x: 19
       y: 17
-      width: 7
+      width: 4
       height: 7
-    spriteID: be1324827bd1dbb46880b2c5c38d03e7
+    spriteID: 72a4f7a9be703f340894403a6b351ecb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -632,7 +611,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Enemies_23
+  - name: Walk5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -640,11 +619,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 44
+      x: 38
       y: 17
-      width: 6
-      height: 7
-    spriteID: 4e19387be256e8840b63e0d2735847c8
+      width: 10
+      height: 6
+    spriteID: 75a8d524aa1efc84e8bfdf94912453b4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -653,7 +632,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Enemies_24
+  - name: Walk4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -661,11 +640,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 58
+      x: 53
       y: 17
-      width: 6
+      width: 5
       height: 7
-    spriteID: f38e6e3a052cb3e44a78301981ea6df9
+    spriteID: 06bd2881b1296c84284e9943dcbc458f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -674,7 +653,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Enemies_25
+  - name: Walk3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -682,32 +661,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 82
-      y: 17
-      width: 8
-      height: 7
-    spriteID: c604958e22b2e3d48a02f1a19f52bba9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Enemies_26
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 108
+      x: 64
       y: 17
       width: 6
       height: 7
-    spriteID: 73bf2625840f4674489ce79e147cc0f8
+    spriteID: 3e7c992691a17fe4cb00f9c3f83d6f0f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -716,7 +674,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: Enemies_27
+  - name: Walk1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -724,32 +682,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 70
+      x: 88
       y: 17
       width: 6
       height: 7
-    spriteID: 2ed9f43d66498994381100aac0db3b0a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: Enemies_28
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 94
-      y: 17
-      width: 7
-      height: 7
-    spriteID: dbc7ec58cfebbb943942d2c011d85d4c
+    spriteID: 4a26deff53a63024facb7483f437ec28
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -766,11 +703,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 28
-      y: 111
-      width: 1
-      height: 2
-    spriteID: c2a5c38d6a3bd0f4ab1177c71da3ce7c
+      x: 24
+      y: 70
+      width: 2
+      height: 10
+    spriteID: d952480c6f1ae17458bebb5e5cd2c3f4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -787,11 +724,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 103
-      y: 102
+      x: 14
+      y: 82
       width: 8
-      height: 4
-    spriteID: ff11d910c05b88e4e9e511d29ea67b0a
+      height: 9
+    spriteID: 3b7ea2e542319b44c982590805d04b33
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -808,11 +745,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 24
-      y: 71
-      width: 2
-      height: 9
-    spriteID: 11eac8ea38cf5cf438baecd7f480efcf
+      x: 28
+      y: 111
+      width: 1
+      height: 2
+    spriteID: bd9ec7d27c76c0948b20ba4bc2acff4d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -829,11 +766,53 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 14
-      y: 82
+      x: 103
+      y: 102
       width: 8
-      height: 9
-    spriteID: 1323cfef217243c44a3c557d95b4027f
+      height: 3
+    spriteID: 48db76d3a2f01344da0aeea0b60ce846
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Walk6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 28
+      y: 17
+      width: 6
+      height: 7
+    spriteID: fb0e94cadd45129488f284351e459df4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Walk2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 74
+      y: 17
+      width: 10
+      height: 6
+    spriteID: a05656aee1ef4ac4f814630ee38f04b3
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -864,7 +843,7 @@ ScriptedImporter:
         y: 7
         width: 123
         height: 120
-      spriteId: ebfdf45481a8c6d46bd648a0a3d42047
+      spriteId: bed58fd2249322a4997635fc82c30109
     linkedCells: []
     tileCells: []
     tileSetIndex: 0

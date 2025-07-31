@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1963144242262514251}
   - component: {fileID: 8601419813309560022}
   m_Layer: 0
-  m_Name: PlayerRifle
+  m_Name: EnemyWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2344872376271182026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.73316, y: -4.81582, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,11 +48,11 @@ MonoBehaviour:
   owner: {fileID: 0}
   projectilePrefab: {fileID: 4901378018650876572, guid: 71b9e388bcbb7fc42b7f962db446c84a, type: 3}
   damage: 5
-  attackSpeed: 0.2
-  projectileSpeed: 15
-  projectileSpeedVariation: 0.3
-  projectileDirectionVariation: 1
-  projectileLifetime: 3
+  attackSpeed: 1
+  projectileSpeed: 8
+  projectileSpeedVariation: 0
+  projectileDirectionVariation: 5
+  projectileLifetime: 4
   projectilesPerShot: 1
   reloadSpeed: 1
   maxAmmo: 6

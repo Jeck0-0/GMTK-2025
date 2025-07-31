@@ -5,27 +5,43 @@ using UnityEngine.Rendering;
 public class PostFXManager : Singleton<PostFXManager>
 {
     [SerializeField] Volume victoryFX;
+    [SerializeField] Volume damageFX;
     [SerializeField] float effectDecaySpeed = 1f;
 
     public void VictoryFX()
     {
-        StartCoroutine(PlayVictoryEffect());
+        StartCoroutine(PlayVictoryEffect(victoryFX));
+    }
+    public void DamageFX()
+    {
+        StartCoroutine(PlayVictoryEffect(damageFX));
     }
 
-    private IEnumerator PlayVictoryEffect()
+    private IEnumerator PlayVictoryEffect(Volume volume, bool fromTop = true)
     {
-        if (victoryFX == null)
+        if (volume == null)
         yield break;
 
-        victoryFX.weight = 1f;
 
-        while (victoryFX.weight > 0)
+        if (fromTop)
         {
-            victoryFX.weight -= effectDecaySpeed * Time.deltaTime;
-            victoryFX.weight = Mathf.Max(victoryFX.weight, 0);
-            yield return null;
+            volume.weight = 1f;
+            while (volume.weight > 0f)
+            {
+                volume.weight -= effectDecaySpeed * Time.deltaTime;
+                yield return null;
+            }
+            volume.weight = 0f;
         }
-
-        victoryFX.weight = 0f;
+        else
+        {
+            volume.weight = 0f;
+            while (volume.weight < 1f)
+            {
+                volume.weight += effectDecaySpeed * Time.deltaTime;
+                yield return null;
+            }
+            volume.weight = 1f;
+        }
     }
 }

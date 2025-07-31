@@ -13,16 +13,16 @@ public class Shaker : Singleton<Shaker>
     {
         cam = GetComponent<CinemachineCamera>();
         if (cam != null)
-            noise = cam.GetComponent<CinemachineBasicMultiChannelPerlin>();
+        noise = cam.GetComponent<CinemachineBasicMultiChannelPerlin>();
 
         if (noise == null)
-            Debug.LogError("CinemachineBasicMultiChannelPerlin component missing on the camera!");
+        Debug.LogError("CinemachineBasicMultiChannelPerlin component missing on the camera!");
     }
 
     public void ShakeCamera(float intensity, float duration)
     {
         if (shakeCoroutine != null)
-            StopCoroutine(shakeCoroutine);
+        StopCoroutine(shakeCoroutine);
 
         shakeCoroutine = StartCoroutine(Shake(intensity, intensity, duration));
     }
