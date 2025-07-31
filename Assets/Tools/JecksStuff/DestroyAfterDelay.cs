@@ -1,29 +1,24 @@
 using UnityEngine;
 
-
-namespace TowerDefense
+public class DestroyAfterDelay : MonoBehaviour
 {
-    public class DestroyAfterDelay : MonoBehaviour
+    [SerializeField] float delay;
+    [SerializeField] bool disableInstead;
+
+    void OnEnable()
     {
-        [SerializeField] float delay;
-        [SerializeField] bool disableInstead;
-    
-        void OnEnable()
+        if (disableInstead)
         {
-            if (disableInstead)
-            {
-                Invoke("Disable", delay);
-            }
-            else
-            {
-                Destroy(gameObject, delay);
-            }
+            Invoke("Disable", delay);
         }
-    
-        void Disable()
+        else
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject, delay);
         }
     }
-    
+
+    void Disable()
+    {
+        gameObject.SetActive(false);
+    }
 }
