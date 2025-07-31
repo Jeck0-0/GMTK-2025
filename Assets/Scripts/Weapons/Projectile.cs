@@ -30,7 +30,6 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("aa");
         /*if (collision.gameObject.layer != LayerMask.NameToLayer("Ground"))
             return;*/
 

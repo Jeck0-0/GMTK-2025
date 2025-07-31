@@ -10,7 +10,7 @@ public class BackgroundItem : MonoBehaviour
     [SerializeField] public AnimationCurve positionCurve;
     [SerializeField] public AnimationCurve rotationCurve;
 
-    public float colorMaxDist = 10;
+    public float colorGradientDistance = 10;
 
     /*public override void ManagedUpdate()
     {

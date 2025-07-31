@@ -44,14 +44,11 @@ public class BGIconSpawner : MonoBehaviour
 
         item.icon.transform.localScale = Vector3.one * item.scaleCurve.Evaluate(dist);
 
-        col.a = item.alphaCurve.Evaluate(dist);
-        item.icon.color = col;
-
-        //icon.transform.rotation = Quaternion.Euler(0, 0, rotationCurve.Evaluate(dist) * 90);
+        item.icon.transform.localRotation = Quaternion.Euler(0, 0, item.rotationCurve.Evaluate(dist) * 90);
 
         item.icon.transform.localPosition = dir * item.positionCurve.Evaluate(dist);
 
-        //item.icon.color = item.colorGradient.Evaluate(dist / item.colorMaxDist);
+        item.icon.color = item.colorGradient.Evaluate(dist / item.colorGradientDistance);
     }
 
     protected virtual void SpawnTiles()

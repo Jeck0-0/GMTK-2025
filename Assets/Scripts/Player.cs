@@ -26,4 +26,9 @@ public class Player : Unit
         if(Input.GetMouseButton(0))
             TryAttacking();
     }
+
+    public override void Die()
+    {
+        gameObject.SetActive(false);
+    }
 }
