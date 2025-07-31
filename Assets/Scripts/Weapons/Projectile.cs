@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     [ReadOnly] public float speed;
     [ReadOnly] public Targetable shotBy;
     [SerializeField] GameObject impactEffect;
-    public virtual void Initialize(Targetable shotBy, float damage, float speed, float duration)
+    public virtual void Initialize(float damage, float speed, float duration, Targetable shotBy = null)
     {
         this.damage = damage;
         this.speed = speed;

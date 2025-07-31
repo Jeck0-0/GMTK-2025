@@ -380,7 +380,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_11
+  - name: PlayerWalk1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -401,7 +401,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_12
+  - name: PlayerWalk2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -422,7 +422,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_13
+  - name: PlayerWalk3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -443,7 +443,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_14
+  - name: PlayerWalk4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -464,7 +464,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_15
+  - name: PlayerWalk5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -485,7 +485,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_16
+  - name: PlayerWalk6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -506,7 +506,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_17
+  - name: PlayerWalk7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -515,9 +515,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 206
-      y: 134
+      y: 133
       width: 12
-      height: 9
+      height: 10
     spriteID: d006eb051bd27a6448f7e45f48511b22
     spriteBone: []
     spriteOutline: []
@@ -527,7 +527,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: characters_18
+  - name: PlayerWalk8
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -535,9 +535,9 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 239
+      x: 238
       y: 131
-      width: 12
+      width: 13
       height: 10
     spriteID: c457fce2b37614a4fba7c58fed53712b
     spriteBone: []

@@ -14,7 +14,7 @@ public class Unit : Targetable
         m_rigidbody = GetComponent<Rigidbody2D>();
 
         if(!weapon)
-            weapon = GetComponentInChildren<Weapon>();
+        weapon = GetComponentInChildren<Weapon>();
 
         base.Awake();
     }

@@ -1,9 +1,10 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class ProjectileWeapon : Weapon
+public class Loopgun : Weapon
 {
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform firePoint;
 
     public float damage = 5;
     public float attackSpeed = 2;
@@ -62,24 +63,25 @@ public class ProjectileWeapon : Weapon
 
         Attack();
     }
-    
+
 
     public override void Attack()
     {
-        for(int i = 0; i < projectilesPerShot; i++)
+        for (int i = 0; i < projectilesPerShot; i++)
         {
-            var go = Instantiate(projectilePrefab, transform.position, GetProjectileDirection());
+            LoopManager.Instance.RecordShot(firePoint.position, Vector2.right);
+            var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
             InitializeProjectile(proj);
         }
         nextShotMinTime = Time.time + attackSpeed;
-        currentAmmo--; 
+        currentAmmo--;
     }
 
     //inheriting classes can override this to make it easier to have different types of projectiles
     protected virtual void InitializeProjectile(Projectile projectile)
     {
-        projectile.Initialize(damage, GetProjectileSpeed(), projectileLifetime, owner);       
+        projectile.Initialize(damage, GetProjectileSpeed(), projectileLifetime, owner);
     }
 
     protected float GetProjectileSpeed()

@@ -3,18 +3,19 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
-    public float moveSpeed = 2f;
-    public float visionRange = 10f;
-    public float attackRange = 7f;
+    [SerializeField] Animator anim;
+    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float visionRange = 10f;
+    [SerializeField] float attackRange = 7f;
+    [SerializeField] Transform[] patrolPoints;
+
 
     private Transform player;
     private Rigidbody2D rb;
-    private Animator anim;
 
     private enum State { Idle, Patrol, Chase, Attack }
     private State currentState = State.Patrol;
 
-    public Transform[] patrolPoints;
     private int currentPatrolIndex = 0;
 
     void Start()

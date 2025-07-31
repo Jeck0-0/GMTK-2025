@@ -817,6 +817,7 @@ MonoBehaviour:
   isDead: 0
   isVulnerable: 1
   weapon: {fileID: 6107448148862161796}
+  anim: {fileID: 2051362181920203819}
   moveSpeed: 2
   visionRange: 10
   attackRange: 7

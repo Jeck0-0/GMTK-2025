@@ -17,12 +17,12 @@ public class Targetable : MonoBehaviour
     public void Damage(float amount)
     {
         if (isDead || !isVulnerable)
-            return;
+        return;
 
         currentHealth -= amount;
 
         if (currentHealth <= 0)
-            Die();
+        Die();
     }
 
     public virtual void Die()
