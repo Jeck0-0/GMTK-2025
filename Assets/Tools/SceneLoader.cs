@@ -39,16 +39,12 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
+            DontDestroyOnLoad(gameObject);
             _instance = this;
         }
     }
     #endregion
 
-    private void Start()
-    {
-        if (obj)
-        obj.SetActive(true);
-    }
     public void LoadScene(string sceneName)
     {
         StartCoroutine(LoadSceneRoutine(sceneName));
