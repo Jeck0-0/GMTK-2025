@@ -9,7 +9,7 @@ public class DestroyAfterDelay : MonoBehaviour
     {
         if (disableInstead)
         {
-            Invoke("Disable", delay);
+            Invoke(nameof(Disable), delay);
         }
         else
         {
