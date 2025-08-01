@@ -4,15 +4,18 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Projectile : Resetable
 {
-    [ReadOnly] public float damage;
-    [ReadOnly] public float speed;
     [ReadOnly] public Targetable shotBy;
+    [ReadOnly] public float speed;
+    public float damage;
+
     [SerializeField] GameObject impactEffect;
     [SerializeField] float timeToChangeSprite = 0.5f;
     [SerializeField] Sprite[] sprites;
+
     private SpriteRenderer spriteRenderer;
     private int currentSpriteIndex = 0;
     private float spriteTimer = 0f;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -46,7 +49,7 @@ public class Projectile : Resetable
         if (collision.TryGetComponent(out Targetable targetable))
         {
             if (targetable == shotBy)
-                return;
+            return;
             
             targetable.Damage(damage);
             Impact(collision, true);
@@ -57,7 +60,7 @@ public class Projectile : Resetable
         {
             damage -= proj.damage;
             if(damage <= 0)
-                Impact(collision, false);
+            Impact(collision, false);
             return;
         }
         

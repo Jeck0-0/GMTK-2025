@@ -13,7 +13,8 @@ public class Player : Unit
             return;
         }
         instance = this;
-        
+
+        LoopManager.Instance.OnGameReset += OnReset;
         base.Awake();
     }
 
@@ -54,5 +55,15 @@ public class Player : Unit
     public override void Die()
     {
         gameObject.SetActive(false);
+        LoopManager.Instance.ResetLevel();
+    }
+    public override void OnReset()
+    {
+        transform.position = initialPosition;
+        transform.rotation = Quaternion.identity;
+        StopAllCoroutines();
+        gameObject.SetActive(true);
+        currentHealth = maxHealth;
+        isDead = false;
     }
 }

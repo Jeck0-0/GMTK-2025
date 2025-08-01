@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Collections;
 
 public class LoopManager : Singleton<LoopManager>
 {
@@ -11,8 +10,6 @@ public class LoopManager : Singleton<LoopManager>
     [SerializeField] GameObject loopBullet;
     [SerializeField] GameObject hintPrefab;
 
-    private List<GameObject> activeHints = new List<GameObject>();
-
     public event Action OnGameReset;
 
     private float runTime = 0f;
@@ -20,7 +17,7 @@ public class LoopManager : Singleton<LoopManager>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
-            ResetLevel();
+        ResetLevel();
 
         runTime += Time.deltaTime;
     }
@@ -35,34 +32,6 @@ public class LoopManager : Singleton<LoopManager>
         });
     }
 
-    private IEnumerator ReplayShots()
-    {
-        var replayList = new List<ShotRecord>(previousShots);// to avoid bugs
-        float timer = 0f;
-        int index = 0;
-
-        while (index < replayList.Count)
-        {
-            timer += Time.deltaTime; // don't use runTime
-
-            while (index < replayList.Count && replayList[index].timeSinceStart <= timer)
-            {
-                FireBullet(replayList[index].position, replayList[index].direction);
-                index++;
-            }
-
-            yield return null;
-        }
-
-        activeHints.Clear();
-    }
-
-    public void FireBullet(Vector2 position, Vector2 direction)
-    {
-        GameObject bullet = Instantiate(loopBullet, position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 10f;
-    }
-
     public void ResetLevel()
     {
         runTime = 0f;
@@ -73,27 +42,18 @@ public class LoopManager : Singleton<LoopManager>
         OnGameReset?.Invoke();
 
         SpawnHints();
-        StartCoroutine(ReplayShots());
     }
 
     private void SpawnHints()
     {
-        foreach (var hint in activeHints)
-        {
-            if (hint != null) Destroy(hint);
-        }
-        activeHints.Clear();
-
         foreach (var shot in previousShots)
         {
             GameObject hint = Instantiate(hintPrefab, shot.position, Quaternion.identity);
 
             if (hint.TryGetComponent(out LoopPortal portal))
             {
-                portal.Initialize(shot.timeSinceStart);
+                portal.Initialize(shot.timeSinceStart, shot.direction);
             }
-
-            activeHints.Add(hint);
         }
     }
 }

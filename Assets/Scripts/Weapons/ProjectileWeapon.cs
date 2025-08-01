@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ProjectileWeapon : Weapon
 {
+    [SerializeField] AudioClip shotSound;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
     private MuzzleFlash muzzleFlash;
@@ -25,7 +26,7 @@ public class ProjectileWeapon : Weapon
     public override void TryAttacking()
     {
         if (nextShotMinTime > Time.time)
-            return;
+        return;
 
         Attack();
     }
@@ -33,6 +34,9 @@ public class ProjectileWeapon : Weapon
 
     public override void Attack()
     {
+        if (shotSound)
+        AudioManager.Instance.PlaySound(shotSound, 0.6f, transform);
+
         muzzleFlash.Flash();
         for (int i = 0; i < projectilesPerShot; i++)
         {

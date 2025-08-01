@@ -1190,20 +1190,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49196921750d4a54d870a516d9533749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDistance: 3
+  attackDistance: 3.5
   owner: {fileID: 5768764352216351150}
+  shotSound: {fileID: 8300000, guid: 156bd31ace32cb34280c6293de6e6676, type: 3}
   projectilePrefab: {fileID: 4901378018650876572, guid: 71b9e388bcbb7fc42b7f962db446c84a, type: 3}
   firePoint: {fileID: 2614816448714123458}
   damage: 50
-  attackSpeed: 2
-  projectileSpeed: 10
+  attackSpeed: 1
+  projectileSpeed: 11
   projectileSpeedVariation: 1
   projectileDirectionVariation: 0.05
-  projectileLifetime: 1
+  projectileLifetime: 2
   projectilesPerShot: 1
-  reloadSpeed: 1
-  maxAmmo: 6
-  currentAmmo: 0
 --- !u!1 &8283806756809991396
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Loopgun : Weapon
     protected override void Awake()
     {
         currentAmmo = startAmmo;
+        PlayerUI.Instance.UpdateAmmo(currentAmmo);
         muzzleFlash = firePoint.GetComponent<MuzzleFlash>();
         base.Awake();
     }
@@ -37,7 +38,7 @@ public class Loopgun : Weapon
 
     public override void TryAttacking()
     {
-        if (currentAmmo > 0)
+        if (currentAmmo <= 0)
         return;
 
         if (nextShotMinTime > Time.time)
