@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Enemy : Unit
 {
@@ -7,8 +9,9 @@ public class Enemy : Unit
     [SerializeField] float visionRange = 10f;
     [SerializeField] float attackRange = 7f;
     [SerializeField] Transform[] patrolPoints;
+    [SerializeField] Light2D hitFX;
 
-
+    private Coroutine blinkRoutine;
     private Transform player;
     private Rigidbody2D rb;
 
@@ -21,6 +24,7 @@ public class Enemy : Unit
     {
         rb = GetComponent<Rigidbody2D>();
         player = Player.instance.transform;
+        if (hitFX) hitFX.enabled = false;
     }
 
     void Update()
@@ -100,7 +104,34 @@ public class Enemy : Unit
         if (directionX != 0)
         transform.localScale = new Vector3(Mathf.Sign(-directionX), 1, 1);
     }
+    private IEnumerator Blink()
+    {
+        if (hitFX == null) yield break;
+        hitFX.enabled = true;
+        yield return new WaitForSeconds(0.1f);
+        hitFX.enabled = false;
+    }
+    public override void Damage(float amount)
+    {
+        if (isDead || !isVulnerable)
+        return;
 
+        currentHealth -= amount;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+            return;
+        }
+
+
+        if (blinkRoutine != null)
+        {
+            StopCoroutine(blinkRoutine);
+            if (hitFX) hitFX.enabled = false;
+        }
+        blinkRoutine = StartCoroutine(Blink());
+    }
     public override void Die()
     {
         if (deathFX)

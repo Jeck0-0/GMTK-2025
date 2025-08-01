@@ -15,7 +15,7 @@ public class Targetable : MonoBehaviour
     }
 
     //deals damage to this unit and checks if it's dead
-    public void Damage(float amount)
+    public virtual void Damage(float amount)
     {
         if (isDead || !isVulnerable)
         return;

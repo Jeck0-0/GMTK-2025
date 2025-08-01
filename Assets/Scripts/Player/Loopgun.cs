@@ -70,7 +70,7 @@ public class Loopgun : Weapon
 
     public override void Attack()
     {
-        Shaker.Instance.ShakeCamera(2.5f, 0.4f);
+        Shaker.Instance.ShakeCamera(3f, 0.4f);
         muzzleFlash.Flash();
         for (int i = 0; i < projectilesPerShot; i++)
         {

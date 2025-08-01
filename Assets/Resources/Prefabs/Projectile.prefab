@@ -141,7 +141,7 @@ MonoBehaviour:
   damage: 0
   speed: 0
   shotBy: {fileID: 0}
-  impactEffect: {fileID: 0}
+  impactEffect: {fileID: 6703802995573317059, guid: 6389a7a73de88ff47936a1337cefaeba, type: 3}
   timeToChangeSprite: 0.5
   sprites:
   - {fileID: 4759762265922630450, guid: 49b386d9bc2cd0d4bb04d6009907dc2b, type: 3}
