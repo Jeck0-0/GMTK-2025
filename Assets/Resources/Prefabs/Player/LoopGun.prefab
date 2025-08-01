@@ -83,7 +83,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   projectilePrefab: {fileID: 4901378018650876572, guid: b0a114232e2d9e64f86493005074018f, type: 3}
   firePoint: {fileID: 7247713487893632335}
-  damage: 50
+  damage: 100
   attackSpeed: 2
   projectileSpeed: 15
   projectileSpeedVariation: 0

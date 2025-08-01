@@ -7,7 +7,7 @@ public class ProjectileWeapon : Weapon
     [SerializeField] Transform firePoint;
     private MuzzleFlash muzzleFlash;
 
-    public float damage = 5;
+    public float damage = 50;
     public float attackSpeed = 2;
     public float projectileSpeed = 5;
     public float projectileSpeedVariation = 1;

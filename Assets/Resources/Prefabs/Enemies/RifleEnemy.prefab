@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 5768764352216351150}
   - component: {fileID: 5202806467270112898}
   - component: {fileID: 3652809232812999405}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RifleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -866,7 +866,7 @@ MonoBehaviour:
   isVulnerable: 1
   weapon: {fileID: 6107448148862161796}
   anim: {fileID: 2051362181920203819}
-  moveSpeed: 3
+  moveSpeed: 5
   visionRange: 15
   attackRange: 7
   patrolPoints: []
@@ -932,8 +932,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_Size: {x: 1.1, y: 2.3}
+  m_Offset: {x: 0, y: 0.2}
+  m_Size: {x: 1.1, y: 2.2}
   m_Direction: 0
 --- !u!1 &6882555167799567554
 GameObject:
@@ -1194,12 +1194,12 @@ MonoBehaviour:
   owner: {fileID: 5768764352216351150}
   projectilePrefab: {fileID: 4901378018650876572, guid: 71b9e388bcbb7fc42b7f962db446c84a, type: 3}
   firePoint: {fileID: 2614816448714123458}
-  damage: 5
+  damage: 50
   attackSpeed: 2
-  projectileSpeed: 5
+  projectileSpeed: 10
   projectileSpeedVariation: 1
-  projectileDirectionVariation: 0
-  projectileLifetime: 3
+  projectileDirectionVariation: 0.05
+  projectileLifetime: 1
   projectilesPerShot: 1
   reloadSpeed: 1
   maxAmmo: 6
