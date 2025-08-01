@@ -70,7 +70,7 @@ namespace TarodevController
 
         private void HandleCharacterTilt()
         {
-            var runningTilt = _grounded ? Quaternion.Euler(0, 0, _maxTilt * _player.FrameInput.x) : Quaternion.identity;
+            var runningTilt = _grounded ? Quaternion.Euler(0, 0, _maxTilt * -_player.FrameInput.x) : Quaternion.identity;
             _anim.transform.up = Vector3.RotateTowards(_anim.transform.up, runningTilt * Vector2.up, _tiltSpeed * Time.deltaTime, 0f);
         }
 

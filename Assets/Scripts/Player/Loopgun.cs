@@ -5,6 +5,7 @@ public class Loopgun : Weapon
 {
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
+    private MuzzleFlash muzzleFlash;
 
     public float damage = 5;
     public float attackSpeed = 2;
@@ -27,6 +28,7 @@ public class Loopgun : Weapon
     protected override void Awake()
     {
         currentAmmo = maxAmmo;
+        muzzleFlash = firePoint.GetComponent<MuzzleFlash>();
         base.Awake();
     }
 
@@ -69,6 +71,7 @@ public class Loopgun : Weapon
     public override void Attack()
     {
         Shaker.Instance.ShakeCamera(2.5f, 0.4f);
+        muzzleFlash.Flash();
         for (int i = 0; i < projectilesPerShot; i++)
         {
             if(recordShots)

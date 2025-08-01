@@ -4,6 +4,8 @@ using UnityEngine;
 public class ProjectileWeapon : Weapon
 {
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] Transform firePoint;
+    private MuzzleFlash muzzleFlash;
 
     public float damage = 5;
     public float attackSpeed = 2;
@@ -25,6 +27,7 @@ public class ProjectileWeapon : Weapon
     protected override void Awake()
     {
         currentAmmo = maxAmmo;
+        muzzleFlash = firePoint.GetComponent<MuzzleFlash>();
         base.Awake();
     }
 
@@ -66,7 +69,8 @@ public class ProjectileWeapon : Weapon
 
     public override void Attack()
     {
-        for(int i = 0; i < projectilesPerShot; i++)
+        muzzleFlash.Flash();
+        for (int i = 0; i < projectilesPerShot; i++)
         {
             var go = Instantiate(projectilePrefab, transform.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
