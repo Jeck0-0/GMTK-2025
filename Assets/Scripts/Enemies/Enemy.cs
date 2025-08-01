@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : Unit
@@ -104,6 +103,8 @@ public class Enemy : Unit
 
     public override void Die()
     {
+        if (deathFX)
+        Instantiate(deathFX, transform.position, Quaternion.identity);
         isDead = true;
         rb.linearVelocity = Vector2.zero;
         Debug.Log("Enemy died!");

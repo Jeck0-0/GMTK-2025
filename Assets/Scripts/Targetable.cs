@@ -4,6 +4,7 @@ using UnityEngine;
 public class Targetable : MonoBehaviour
 {
     [DisableInEditorMode] public float currentHealth;
+    public GameObject deathFX;
     public float maxHealth = 100;
     public bool isDead;
     public bool isVulnerable = true;
@@ -27,6 +28,8 @@ public class Targetable : MonoBehaviour
 
     public virtual void Die()
     {
+        if (deathFX)
+        Instantiate(deathFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
