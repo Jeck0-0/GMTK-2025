@@ -32,7 +32,7 @@ public class DebugShortcuts : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F8) && SceneManager.sceneCount > 7)
             SceneManager.LoadScene(7);
 
-        if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.LeftControl))
         {
             
             //lower volume
