@@ -458,7 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorA: {r: 1, g: 0, b: 0, a: 1}
-  colorB: {r: 0.7132075, g: 0, b: 0, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
   duration: 1
 --- !u!212 &1995541457773414904
 SpriteRenderer:

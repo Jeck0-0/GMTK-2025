@@ -163,7 +163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1820565215
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6030242796960377854, guid: e404ea8efb7a4eb418aa968def654245, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -634,7 +634,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1820565215
   m_SortingLayer: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -6030242796960377854, guid: e404ea8efb7a4eb418aa968def654245, type: 3}
   m_Color: {r: 0.4641509, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -818,8 +818,8 @@ MonoBehaviour:
   isVulnerable: 1
   weapon: {fileID: 6107448148862161796}
   anim: {fileID: 2051362181920203819}
-  moveSpeed: 2
-  visionRange: 10
+  moveSpeed: 3
+  visionRange: 15
   attackRange: 7
   patrolPoints: []
 --- !u!50 &5202806467270112898
@@ -848,7 +848,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &3652809232812999405
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

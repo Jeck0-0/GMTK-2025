@@ -21,7 +21,6 @@ public class Enemy : Unit
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         player = Player.instance.transform;
     }
 
@@ -40,23 +39,29 @@ public class Enemy : Unit
             case State.Patrol:
                 Patrol();
                 if (distanceToPlayer < visionRange)
-                currentState = State.Chase;
+                ChangeState(State.Chase);
                 break;
 
             case State.Chase:
                 ChasePlayer();
                 if (distanceToPlayer < attackRange)
-                currentState = State.Attack;
+                ChangeState(State.Attack);
                 else if (distanceToPlayer > visionRange)
-                currentState = State.Patrol;
+                ChangeState(State.Patrol);
                 break;
 
             case State.Attack:
                 Attack();
                 if (distanceToPlayer > attackRange)
-                currentState = State.Chase;
+                ChangeState(State.Chase);
                 break;
         }
+    }
+    private void ChangeState(State state)
+    {
+        if(anim)
+        anim.SetBool("Moving", false);
+        currentState = state;
     }
 
     void Patrol()
@@ -84,7 +89,8 @@ public class Enemy : Unit
 
     void MoveTowards(Vector2 target)
     {
-        anim.SetBool("Moving", Mathf.Abs(rb.linearVelocity.x) > 0.1f);
+        if (anim)
+        anim.SetBool("Moving", true);
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         FlipSprite(direction.x);
@@ -93,7 +99,7 @@ public class Enemy : Unit
     void FlipSprite(float directionX)
     {
         if (directionX != 0)
-        transform.localScale = new Vector3(Mathf.Sign(directionX), 1, 1);
+        transform.localScale = new Vector3(Mathf.Sign(-directionX), 1, 1);
     }
 
     public override void Die()
