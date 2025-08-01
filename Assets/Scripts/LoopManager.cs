@@ -4,67 +4,53 @@ using UnityEngine;
 
 public class LoopManager : Singleton<LoopManager>
 {
-    [SerializeField] GameObject projectilePrefab;
-
-    public List<ShotRecord> previousShots = new List<ShotRecord>();
+    public static List<ShotRecord> previousShots = new();
     public Loopgun loopgun;
 
-    private float runTime = 0f;
+    protected List<ShotRecord> shotsLeft = new();
 
+    protected override void Awake()
+    {
+        base.Awake();
+        shotsLeft = new List<ShotRecord>(previousShots);
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        ResetGame();
-        runTime += Time.deltaTime;
+        // fire shots
+        for (int i = shotsLeft.Count - 1; i > 0; i--)
+        {
+            if (Time.timeSinceLevelLoad > shotsLeft[i].timeSinceStart)
+            {
+                FireBullet(shotsLeft[i].position, shotsLeft[i].direction);
+                shotsLeft.RemoveAt(i);
+            }
+        }
     }
 
-    public void RecordShot(Vector2 pos, Vector2 dir)
+    public void RecordShot(Vector2 pos, Quaternion dir)
     {
         previousShots.Add(new ShotRecord
         {
             position = pos,
-            direction = dir.normalized,
-            timeSinceStart = runTime
+            direction = dir,
+            timeSinceStart = Time.timeSinceLevelLoad
         });
     }
 
-    public void ResetGame()
-    {
-        runTime = 0f;
-        StartCoroutine(ReplayShots());
-    }
 
-    IEnumerator ReplayShots()
+    public void FireBullet(Vector2 position, Quaternion direction)
     {
-
-        foreach (var shot in previousShots)
-        {
-            yield return new WaitForSeconds(shot.timeSinceStart);
-            FireBullet(shot.position, shot.direction);
-        }
-    }
-    public  void FireBullet(Vector2 position, Vector2 direction)
-    {
-        var go = Instantiate(projectilePrefab, position, Quaternion.identity);
-        go.GetComponent<Rigidbody2D>().linearVelocity = direction * 10f;
-        var proj = go.GetComponent<Projectile>();
-        InitializeProjectile(proj);
-    }
-    protected virtual void InitializeProjectile(Projectile projectile)
-    {
-        projectile.Initialize(loopgun.damage, GetProjectileSpeed(), loopgun.projectileLifetime);
-    }
-
-    protected float GetProjectileSpeed()
-    {
-        return loopgun.projectileSpeed + Random.Range(0, loopgun.projectileSpeedVariation) - loopgun.projectileSpeedVariation / 2;
+        loopgun.transform.position= position;
+        loopgun.transform.rotation = direction;
+        loopgun.Attack();
     }
 }
+
 [System.Serializable]
 public class ShotRecord
 {
     public Vector2 position;
-    public Vector2 direction;
+    public Quaternion direction;
     public float timeSinceStart;
 }

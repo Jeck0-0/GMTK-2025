@@ -69,7 +69,7 @@ public class Loopgun : Weapon
     {
         for (int i = 0; i < projectilesPerShot; i++)
         {
-            LoopManager.Instance.RecordShot(firePoint.position, Vector2.right);
+            LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
             var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
             InitializeProjectile(proj);
