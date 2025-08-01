@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LoopManager : Singleton<LoopManager>
 {
-    [ShowInInspector] public static List<ShotRecord> previousShots = new();
+    public static List<ShotRecord> previousShots = new();
     public Loopgun loopgun;
-    public GameObject gunGfx;
     
     public float previewTime = 1;
     
-    [ShowInInspector] protected List<ShotRecord> shotsLeft = new();
+    protected List<ShotRecord> shotsLeft = new();
     protected ShotRecord nextShot;
     protected ShotRecord currentlyPreviewing;
     
@@ -26,7 +26,7 @@ public class LoopManager : Singleton<LoopManager>
 
     private void Start()
     {
-        gunGfx.SetActive(false);
+        loopgun.gameObject.SetActive(false);
     }
 
     void Update()
@@ -39,7 +39,7 @@ public class LoopManager : Singleton<LoopManager>
                 FireBullet(shotsLeft[i].position, shotsLeft[i].direction);
                 shotsLeft.RemoveAt(i);
                 nextShot = shotsLeft.OrderBy(x => x.timeSinceStart).FirstOrDefault();
-                gunGfx.SetActive(false);
+                loopgun.gameObject.SetActive(false);
             }
         }
         if (nextShot != null && Time.timeSinceLevelLoad + previewTime > nextShot.timeSinceStart)
@@ -62,7 +62,7 @@ public class LoopManager : Singleton<LoopManager>
     {
         loopgun.transform.position= shot.position;
         loopgun.transform.rotation = shot.direction;
-        gunGfx.SetActive(true);
+        loopgun.gameObject.SetActive(true);
     }
 
 

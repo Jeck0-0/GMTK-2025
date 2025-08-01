@@ -35,7 +35,7 @@ public class Projectile : MonoBehaviour
 
         var targetable = collision.GetComponent<Targetable>();
         
-        if (targetable == shotBy)
+        if (targetable == shotBy && shotBy)
             return;
         
         if (targetable == null)
