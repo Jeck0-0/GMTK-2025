@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Targetable : MonoBehaviour
+public class Targetable : Resetable
 {
     [DisableInEditorMode] public float currentHealth;
     public GameObject deathFX;
@@ -30,6 +30,6 @@ public class Targetable : MonoBehaviour
     {
         if (deathFX)
         Instantiate(deathFX, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

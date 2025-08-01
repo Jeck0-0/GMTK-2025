@@ -81,11 +81,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 3
   owner: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: fa4d56b4aeb6f5242a6800d64f3c8d15, type: 3}
   projectilePrefab: {fileID: 4901378018650876572, guid: b0a114232e2d9e64f86493005074018f, type: 3}
   firePoint: {fileID: 7247713487893632335}
   damage: 100
-  attackSpeed: 2
-  projectileSpeed: 15
+  attackSpeed: 1
+  projectileSpeed: 16
   projectileSpeedVariation: 0
   projectileDirectionVariation: 0
   projectileLifetime: 3

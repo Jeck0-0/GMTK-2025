@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class ProjectileWeapon : Weapon
@@ -15,51 +14,16 @@ public class ProjectileWeapon : Weapon
     public float projectileLifetime = 3;
 
     public int projectilesPerShot = 1;
-
-    public float reloadSpeed = 1;
-    public int maxAmmo = 6;
-
-
-    [DisableInEditorMode] public int currentAmmo;
     protected float nextShotMinTime = 0;
-    protected bool isReloading;
 
     protected override void Awake()
     {
-        currentAmmo = maxAmmo;
         muzzleFlash = firePoint.GetComponent<MuzzleFlash>();
         base.Awake();
     }
 
-    public override void Reload()
-    {
-        if (currentAmmo == maxAmmo)
-            return;
-
-        //TODO: add animation/sound
-        isReloading = true;
-        Invoke(nameof(DoReload), reloadSpeed);
-    }
-
-    //end of the reload animation
-    protected void DoReload()
-    {
-        currentAmmo = maxAmmo;
-        isReloading = false;
-    }
-
     public override void TryAttacking()
     {
-        //attack if possible.
-        if (isReloading)
-            return;
-
-        if (currentAmmo <= 0)
-        {
-            Reload();
-            return;
-        }
-
         if (nextShotMinTime > Time.time)
             return;
 
@@ -77,7 +41,6 @@ public class ProjectileWeapon : Weapon
             InitializeProjectile(proj);
         }
         nextShotMinTime = Time.time + attackSpeed;
-        currentAmmo--; 
     }
 
     //inheriting classes can override this to make it easier to have different types of projectiles

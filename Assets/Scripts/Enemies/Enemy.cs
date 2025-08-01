@@ -20,8 +20,10 @@ public class Enemy : Unit
 
     private int currentPatrolIndex = 0;
 
-    void Start()
+    protected override void Start()
     {
+        initialPosition = transform.position;
+        LoopManager.Instance.OnGameReset += OnReset;
         rb = GetComponent<Rigidbody2D>();
         player = Player.instance.transform;
         if (hitFX) hitFX.enabled = false;
@@ -139,6 +141,15 @@ public class Enemy : Unit
         isDead = true;
         rb.linearVelocity = Vector2.zero;
         Debug.Log("Enemy died!");
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+    public override void OnReset()
+    {
+        transform.position = initialPosition;
+        transform.rotation = Quaternion.identity;
+        StopAllCoroutines();
+        gameObject.SetActive(true);
+        currentHealth = maxHealth;
+        isDead = false;
     }
 }

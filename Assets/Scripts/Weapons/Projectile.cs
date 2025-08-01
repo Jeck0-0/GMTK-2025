@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class Projectile : MonoBehaviour
+public class Projectile : Resetable
 {
     [ReadOnly] public float damage;
     [ReadOnly] public float speed;
@@ -85,5 +85,9 @@ public class Projectile : MonoBehaviour
             currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Length;
             spriteRenderer.sprite = sprites[currentSpriteIndex];
         }
+    }
+    public override void OnReset()
+    {
+        Destroy(gameObject);
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Loopgun : Weapon
 {
+    [SerializeField] AudioClip shotSound;
     [SerializeField] GameObject projectilePrefab;
     [SerializeField] Transform firePoint;
     private MuzzleFlash muzzleFlash;
@@ -16,53 +17,28 @@ public class Loopgun : Weapon
 
     public int projectilesPerShot = 1;
 
-    public float reloadSpeed = 1;
-    public int maxAmmo = 6;
+    public int startAmmo = 6;
 
     public bool recordShots = true;
 
     [DisableInEditorMode] public int currentAmmo;
     protected float nextShotMinTime = 0;
-    protected bool isReloading;
 
     protected override void Awake()
     {
-        currentAmmo = maxAmmo;
+        currentAmmo = startAmmo;
         muzzleFlash = firePoint.GetComponent<MuzzleFlash>();
         base.Awake();
     }
-
-    public override void Reload()
+    private void Start()
     {
-        if (currentAmmo == maxAmmo)
-            return;
-
-        //TODO: add animation/sound
-        isReloading = true;
-        Invoke(nameof(DoReload), reloadSpeed);
-    }
-
-    //end of the reload animation
-    protected void DoReload()
-    {
-        currentAmmo = maxAmmo;
-        isReloading = false;
+        LoopManager.Instance.OnGameReset += OnReset;
     }
 
     public override void TryAttacking()
     {
-        //attack if possible.
-        if (isReloading)
-            return;
-
-        if (currentAmmo <= 0)
-        {
-            Reload();
-            return;
-        }
-
         if (nextShotMinTime > Time.time)
-            return;
+        return;
 
         Attack();
     }
@@ -70,18 +46,20 @@ public class Loopgun : Weapon
 
     public override void Attack()
     {
-        Shaker.Instance.ShakeCamera(3f, 0.4f);
+        AudioManager.Instance.PlaySound(shotSound, 0.8f);
+        Shaker.Instance.ShakeCamera(4f, 0.4f);
         muzzleFlash.Flash();
         for (int i = 0; i < projectilesPerShot; i++)
         {
             if(recordShots)
-            LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
+            LoopManager.Instance.RecordShot(firePoint.position, firePoint.right);
             var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
             InitializeProjectile(proj);
         }
         nextShotMinTime = Time.time + attackSpeed;
         currentAmmo--;
+        PlayerUI.Instance.UpdateAmmo(currentAmmo);
     }
 
     //inheriting classes can override this to make it easier to have different types of projectiles
@@ -100,5 +78,15 @@ public class Loopgun : Weapon
         var variation = Random.Range(0, projectileDirectionVariation) - projectileDirectionVariation / 2;
         return Quaternion.Euler(transform.rotation.eulerAngles + Vector3.forward * variation);
     }
+    private void OnDestroy()
+    {
+        if (LoopManager.Instance != null)
+        LoopManager.Instance.OnGameReset -= OnReset;
+    }
 
+    private void OnReset()
+    {
+        currentAmmo = startAmmo;
+        StopAllCoroutines();
+    }
 }

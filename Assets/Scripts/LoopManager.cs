@@ -1,72 +1,71 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using System;
+using System.Collections;
 
 public class LoopManager : Singleton<LoopManager>
 {
-    public static List<ShotRecord> previousShots = new();
-    public Loopgun loopgun;
-    
-    public float previewTime = 1;
-    
-    protected List<ShotRecord> shotsLeft = new();
-    protected ShotRecord nextShot;
-    protected ShotRecord currentlyPreviewing;
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        shotsLeft = new List<ShotRecord>(previousShots);
-        nextShot = shotsLeft.OrderBy(x => x.timeSinceStart).FirstOrDefault();
-    }
+    public List<ShotRecord> previousShots = new List<ShotRecord>(); // All bullets from previous runs
+    private List<ShotRecord> currentShots = new List<ShotRecord>(); // Bullets from the current run
 
-    private void Start()
-    {
-        loopgun.gameObject.SetActive(false);
-    }
+    [SerializeField] GameObject loopBullet;
+    public event Action OnGameReset;
+
+    private float runTime = 0f;
 
     void Update()
     {
-        // fire shots
-        for (int i = shotsLeft.Count - 1; i >= 0; i--)
-        {
-            if (Time.timeSinceLevelLoad > shotsLeft[i].timeSinceStart)
-            {
-                FireBullet(shotsLeft[i].position, shotsLeft[i].direction);
-                shotsLeft.RemoveAt(i);
-                nextShot = shotsLeft.OrderBy(x => x.timeSinceStart).FirstOrDefault();
-                loopgun.gameObject.SetActive(false);
-            }
-        }
-        if (nextShot != null && Time.timeSinceLevelLoad + previewTime > nextShot.timeSinceStart)
-        {
-            PreviewShot(nextShot);
-        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        ResetLevel();
+
+        runTime += Time.deltaTime;
     }
 
-    public void RecordShot(Vector2 pos, Quaternion dir)
+    public void RecordShot(Vector2 pos, Vector2 dir)
     {
-        previousShots.Add(new ShotRecord
+        currentShots.Add(new ShotRecord
         {
             position = pos,
-            direction = dir,
-            timeSinceStart = Time.timeSinceLevelLoad
+            direction = dir.normalized,
+            timeSinceStart = runTime
         });
     }
 
-    void PreviewShot(ShotRecord shot)
+    private IEnumerator ReplayShots()
     {
-        loopgun.transform.position= shot.position;
-        loopgun.transform.rotation = shot.direction;
-        loopgun.gameObject.SetActive(true);
+        var replayList = new List<ShotRecord>(previousShots);// to avoid bugs
+        float timer = 0f;
+        int index = 0;
+
+        while (index < replayList.Count)
+        {
+            timer += Time.deltaTime; // don't use runTime
+
+            while (index < replayList.Count && replayList[index].timeSinceStart <= timer)
+            {
+                FireBullet(replayList[index].position, replayList[index].direction);
+                index++;
+            }
+
+            yield return null;
+        }
     }
 
-
-    public void FireBullet(Vector2 position, Quaternion direction)
+    public void FireBullet(Vector2 position, Vector2 direction)
     {
-        loopgun.transform.position= position;
-        loopgun.transform.rotation = direction;
-        loopgun.Attack();
+        GameObject bullet = Instantiate(loopBullet, position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = direction * 10f;
+    }
+
+    public void ResetLevel()
+    {
+        runTime = 0f;
+
+        previousShots.AddRange(currentShots);
+        currentShots.Clear();
+
+        OnGameReset?.Invoke();
+        StartCoroutine(ReplayShots());
     }
 }
 
@@ -74,6 +73,6 @@ public class LoopManager : Singleton<LoopManager>
 public class ShotRecord
 {
     public Vector2 position;
-    public Quaternion direction;
+    public Vector2 direction;
     public float timeSinceStart;
 }

@@ -17,8 +17,6 @@ public abstract class Weapon : MonoBehaviour
         if(owner)
             SetEquipped(owner);
     }
-
-    public virtual void Reload() { }
     
     public virtual void TryAttacking() 
         => Attack();
