@@ -393,17 +393,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2526472347447813461, guid: 9aef9c1ceea276f4082920559d2d9e15, type: 3}
   m_PrefabInstance: {fileID: 1580708651}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &329446621 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2815863635841806981, guid: 9aef9c1ceea276f4082920559d2d9e15, type: 3}
-  m_PrefabInstance: {fileID: 1580708651}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac70e96d45913d445867d722d1cc5be3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &337809381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1963144242262514251, guid: 97991fefa376f1840b160bf7dd11d96e, type: 3}
@@ -765,7 +754,7 @@ PrefabInstance:
     - target: {fileID: 5886605791624287226, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
       propertyPath: owner
       value: 
-      objectReference: {fileID: 329446621}
+      objectReference: {fileID: 0}
     - target: {fileID: 5886605791624287226, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
       propertyPath: recordShots
       value: 0

@@ -33,19 +33,26 @@ public class Projectile : MonoBehaviour
         /*if (collision.gameObject.layer != LayerMask.NameToLayer("Ground"))
             return;*/
 
-        var targetable = collision.GetComponent<Targetable>();
-        
-        if (targetable == shotBy && shotBy)
-            return;
-        
-        if (targetable == null)
+        if (collision.TryGetComponent(out Targetable targetable))
         {
-            Impact(collision, false);
+            if (targetable == shotBy)
+                return;
+            
+            targetable.Damage(damage);
+            Impact(collision, true);
             return;
         }
 
-        targetable.Damage(damage);
-        Impact(collision, true);
+        if (collision.TryGetComponent(out Projectile proj))
+        {
+            damage -= proj.damage;
+            if(damage <= 0)
+                Impact(collision, false);
+            return;
+        }
+        
+        Impact(collision, false);
+
     }
 
     //Inheriting classes can override this to have different
