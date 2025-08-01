@@ -162,6 +162,7 @@ namespace TarodevController
             else
             {
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
+                transform.localScale = new Vector3(Mathf.Sign(_frameInput.Move.x), 1, 1);
             }
         }
 

@@ -22,7 +22,7 @@ public class Enemy : Unit
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player")?.transform;
+        player = Player.instance.transform;
     }
 
     void Update()
