@@ -1,30 +1,50 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LoopManager : Singleton<LoopManager>
 {
-    public static List<ShotRecord> previousShots = new();
+    [ShowInInspector] public static List<ShotRecord> previousShots = new();
     public Loopgun loopgun;
-
-    protected List<ShotRecord> shotsLeft = new();
-
+    public GameObject gunGfx;
+    
+    public float previewTime = 1;
+    
+    [ShowInInspector] protected List<ShotRecord> shotsLeft = new();
+    protected ShotRecord nextShot;
+    protected ShotRecord currentlyPreviewing;
+    
     protected override void Awake()
     {
         base.Awake();
         shotsLeft = new List<ShotRecord>(previousShots);
+        nextShot = shotsLeft.OrderBy(x => x.timeSinceStart).FirstOrDefault();
+    }
+
+    private void Start()
+    {
+        gunGfx.SetActive(false);
     }
 
     void Update()
     {
         // fire shots
-        for (int i = shotsLeft.Count - 1; i > 0; i--)
+        for (int i = shotsLeft.Count - 1; i >= 0; i--)
         {
             if (Time.timeSinceLevelLoad > shotsLeft[i].timeSinceStart)
             {
                 FireBullet(shotsLeft[i].position, shotsLeft[i].direction);
                 shotsLeft.RemoveAt(i);
+                nextShot = shotsLeft.OrderBy(x => x.timeSinceStart).FirstOrDefault();
+                gunGfx.SetActive(false);
             }
+        }
+        if (nextShot != null && Time.timeSinceLevelLoad + previewTime > nextShot.timeSinceStart)
+        {
+            PreviewShot(nextShot);
         }
     }
 
@@ -36,6 +56,13 @@ public class LoopManager : Singleton<LoopManager>
             direction = dir,
             timeSinceStart = Time.timeSinceLevelLoad
         });
+    }
+
+    void PreviewShot(ShotRecord shot)
+    {
+        loopgun.transform.position= shot.position;
+        loopgun.transform.rotation = shot.direction;
+        gunGfx.SetActive(true);
     }
 
 

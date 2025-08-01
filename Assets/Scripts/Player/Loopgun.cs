@@ -18,6 +18,7 @@ public class Loopgun : Weapon
     public float reloadSpeed = 1;
     public int maxAmmo = 6;
 
+    public bool recordShots = true;
 
     [DisableInEditorMode] public int currentAmmo;
     protected float nextShotMinTime = 0;
@@ -69,7 +70,8 @@ public class Loopgun : Weapon
     {
         for (int i = 0; i < projectilesPerShot; i++)
         {
-            LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
+            if(recordShots)
+                LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
             var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
             InitializeProjectile(proj);
