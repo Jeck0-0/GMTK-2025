@@ -9,6 +9,10 @@ public class LoopManager : Singleton<LoopManager>
     private List<ShotRecord> currentShots = new List<ShotRecord>(); // Bullets from the current run
 
     [SerializeField] GameObject loopBullet;
+    [SerializeField] GameObject hintPrefab;
+
+    private List<GameObject> activeHints = new List<GameObject>();
+
     public event Action OnGameReset;
 
     private float runTime = 0f;
@@ -16,7 +20,7 @@ public class LoopManager : Singleton<LoopManager>
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
-        ResetLevel();
+            ResetLevel();
 
         runTime += Time.deltaTime;
     }
@@ -49,6 +53,8 @@ public class LoopManager : Singleton<LoopManager>
 
             yield return null;
         }
+
+        activeHints.Clear();
     }
 
     public void FireBullet(Vector2 position, Vector2 direction)
@@ -65,7 +71,30 @@ public class LoopManager : Singleton<LoopManager>
         currentShots.Clear();
 
         OnGameReset?.Invoke();
+
+        SpawnHints();
         StartCoroutine(ReplayShots());
+    }
+
+    private void SpawnHints()
+    {
+        foreach (var hint in activeHints)
+        {
+            if (hint != null) Destroy(hint);
+        }
+        activeHints.Clear();
+
+        foreach (var shot in previousShots)
+        {
+            GameObject hint = Instantiate(hintPrefab, shot.position, Quaternion.identity);
+
+            if (hint.TryGetComponent(out LoopPortal portal))
+            {
+                portal.Initialize(shot.timeSinceStart);
+            }
+
+            activeHints.Add(hint);
+        }
     }
 }
 

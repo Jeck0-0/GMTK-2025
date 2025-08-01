@@ -37,6 +37,9 @@ public class Loopgun : Weapon
 
     public override void TryAttacking()
     {
+        if (currentAmmo > 0)
+        return;
+
         if (nextShotMinTime > Time.time)
         return;
 
@@ -47,7 +50,7 @@ public class Loopgun : Weapon
     public override void Attack()
     {
         AudioManager.Instance.PlaySound(shotSound, 0.8f);
-        Shaker.Instance.ShakeCamera(4f, 0.4f);
+        Shaker.Instance.ShakeCamera(5f, 0.4f);
         muzzleFlash.Flash();
         for (int i = 0; i < projectilesPerShot; i++)
         {
