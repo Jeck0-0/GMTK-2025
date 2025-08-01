@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 3
   owner: {fileID: 0}
-  projectilePrefab: {fileID: 4901378018650876572, guid: 71b9e388bcbb7fc42b7f962db446c84a, type: 3}
+  projectilePrefab: {fileID: 4901378018650876572, guid: b0a114232e2d9e64f86493005074018f, type: 3}
   firePoint: {fileID: 7247713487893632335}
   damage: 50
   attackSpeed: 2
@@ -92,6 +92,7 @@ MonoBehaviour:
   projectilesPerShot: 1
   reloadSpeed: 1
   maxAmmo: 6
+  recordShots: 1
   currentAmmo: 0
 --- !u!1 &5633175754527682423
 GameObject:
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorA: {r: 1, g: 0, b: 0, a: 1}
-  colorB: {r: 0.7132075, g: 0, b: 0, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
   duration: 1
 --- !u!212 &9104024082115741678
 SpriteRenderer:

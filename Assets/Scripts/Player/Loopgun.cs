@@ -68,10 +68,11 @@ public class Loopgun : Weapon
 
     public override void Attack()
     {
+        Shaker.Instance.ShakeCamera(2.5f, 0.4f);
         for (int i = 0; i < projectilesPerShot; i++)
         {
             if(recordShots)
-                LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
+            LoopManager.Instance.RecordShot(firePoint.position, transform.rotation);
             var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
             var proj = go.GetComponent<Projectile>();
             InitializeProjectile(proj);
