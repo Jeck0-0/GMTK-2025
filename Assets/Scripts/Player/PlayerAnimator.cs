@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace TarodevController
 {
-    /// <summary>
-    /// VERY primitive animator example.
-    /// </summary>
     public class PlayerAnimator : MonoBehaviour
     {
         [Header("References")] [SerializeField]
@@ -59,16 +56,9 @@ namespace TarodevController
 
             DetectGroundColor();
 
-            HandleSpriteFlip();
-
             HandleIdleSpeed();
 
             HandleCharacterTilt();
-        }
-
-        private void HandleSpriteFlip()
-        {
-            //if (_player.FrameInput.x != 0) visuals.flipX = _player.FrameInput.x < 0;
         }
 
         private void HandleIdleSpeed()
