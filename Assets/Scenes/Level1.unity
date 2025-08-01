@@ -890,6 +890,10 @@ PrefabInstance:
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 4901378018650876572, guid: 71b9e388bcbb7fc42b7f962db446c84a, type: 3}
+    - target: {fileID: 7289234292713325363, guid: 9aef9c1ceea276f4082920559d2d9e15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7945382490467122114, guid: 9aef9c1ceea276f4082920559d2d9e15, type: 3}
       propertyPath: m_Name
       value: Player
