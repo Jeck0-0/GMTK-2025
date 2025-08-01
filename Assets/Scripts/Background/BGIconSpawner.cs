@@ -64,7 +64,7 @@ public class BGIconSpawner : MonoBehaviour
                 p = new Vector2Int(x, y);
                 if (!ignoreTiles.Contains(p))
                 {
-                    var go = Instantiate(iconPrefab, spawnPos, Quaternion.identity, transform);
+                    var go = Instantiate(iconPrefab, transform.position + spawnPos, Quaternion.identity, transform);
                     if (go.TryGetComponent(out BackgroundItem item))
                     {
                         grid.Add(p, item);
