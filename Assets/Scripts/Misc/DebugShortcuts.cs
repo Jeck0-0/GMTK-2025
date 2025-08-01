@@ -15,14 +15,22 @@ public class DebugShortcuts : MonoBehaviour
             Screen.fullScreen = toggle;
         }
 
-        if (Input.GetKeyDown(KeyCode.F1))
-            SceneManager.LoadScene("LoadableLevel");
-            
-        if (Input.GetKeyDown(KeyCode.F2))
-            SceneManager.LoadScene("LevelEditor");
-
-        if (Input.GetKeyDown(KeyCode.F3))
-            SceneManager.LoadScene("ProceduralLevel");
+        if (Input.GetKeyDown(KeyCode.F1) && SceneManager.sceneCount > 0)
+            SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.F2) && SceneManager.sceneCount > 1)
+            SceneManager.LoadScene(1);
+        if (Input.GetKeyDown(KeyCode.F3) && SceneManager.sceneCount > 2)
+            SceneManager.LoadScene(2);
+        if (Input.GetKeyDown(KeyCode.F4) && SceneManager.sceneCount > 3)
+            SceneManager.LoadScene(3);
+        if (Input.GetKeyDown(KeyCode.F5) && SceneManager.sceneCount > 4)
+            SceneManager.LoadScene(4);
+        if (Input.GetKeyDown(KeyCode.F6) && SceneManager.sceneCount > 5)
+            SceneManager.LoadScene(5);
+        if (Input.GetKeyDown(KeyCode.F7) && SceneManager.sceneCount > 6)
+            SceneManager.LoadScene(6);
+        if (Input.GetKeyDown(KeyCode.F8) && SceneManager.sceneCount > 7)
+            SceneManager.LoadScene(7);
 
         if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift))
         {
@@ -47,6 +55,13 @@ public class DebugShortcuts : MonoBehaviour
             {
                 SceneManager.LoadScene(0);
                 Debug.Log("Loaded main scene");
+            }
+
+            //Reload scene
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                Debug.Log("Reloaded scene");
             }
 
             
