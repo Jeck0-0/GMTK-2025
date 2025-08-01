@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopgun: {fileID: 1494972704}
+  previewTime: 1
 --- !u!4 &721738540
 Transform:
   m_ObjectHideFlags: 0
@@ -420,17 +421,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 948141555}
+  - component: {fileID: 948141556}
+  - component: {fileID: 948141551}
   - component: {fileID: 948141554}
   - component: {fileID: 948141553}
-  - component: {fileID: 948141552}
-  - component: {fileID: 948141551}
   m_Layer: 0
   m_Name: Firewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &948141551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,19 +445,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 9999
---- !u!114 &948141552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 948141550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9146fe4092630f4e83e428051074173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0, z: 0}
 --- !u!61 &948141553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -573,6 +561,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948141556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948141550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6f0d1d84b87154db7891f4ed42eb22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4225623}
+  maxSpeed: 2
+  minSpeed: 0.4
+  slowDownDistance: 10
 --- !u!1 &1073681666
 GameObject:
   m_ObjectHideFlags: 0

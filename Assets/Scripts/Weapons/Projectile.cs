@@ -8,6 +8,15 @@ public class Projectile : MonoBehaviour
     [ReadOnly] public float speed;
     [ReadOnly] public Targetable shotBy;
     [SerializeField] GameObject impactEffect;
+    [SerializeField] float timeToChangeSprite = 0.5f;
+    [SerializeField] Sprite[] sprites;
+    private SpriteRenderer spriteRenderer;
+    private int currentSpriteIndex = 0;
+    private float spriteTimer = 0f;
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     public virtual void Initialize(float damage, float speed, float duration, Targetable shotBy = null)
     {
         this.damage = damage;
@@ -19,6 +28,7 @@ public class Projectile : MonoBehaviour
     public void Update()
     {
         MoveUpdate();
+        ChangeSprite();
     }
 
     //Inheriting classes can override this to move in a different way
@@ -61,7 +71,19 @@ public class Projectile : MonoBehaviour
     {
         enabled = false;
         if(impactEffect)
-            Instantiate(impactEffect, transform.position, transform.rotation);
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
+    }
+    private void ChangeSprite()
+    {
+        if (sprites == null || sprites.Length == 0 || spriteRenderer == null) return;
+
+        spriteTimer += Time.deltaTime;
+        if (spriteTimer >= timeToChangeSprite)
+        {
+            spriteTimer = 0f;
+            currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Length;
+            spriteRenderer.sprite = sprites[currentSpriteIndex];
+        }
     }
 }

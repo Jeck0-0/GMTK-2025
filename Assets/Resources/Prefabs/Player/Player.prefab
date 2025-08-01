@@ -256,7 +256,7 @@ MonoBehaviour:
   maxHealth: 100
   isDead: 0
   isVulnerable: 1
-  weapon: {fileID: 0}
+  weapon: {fileID: 2473984576932125736}
 --- !u!114 &1959533263567271137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +454,7 @@ SpriteRenderer:
   m_SortingLayerID: -1820565215
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: -9151083896128374970, guid: ee99ab0445ff61b4b826564f5de64605, type: 3}
+  m_Sprite: {fileID: -4476795209214873869, guid: ee99ab0445ff61b4b826564f5de64605, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -604,11 +604,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoopGun
       objectReference: {fileID: 0}
+    - target: {fileID: 5886605791624287226, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
+      propertyPath: owner
+      value: 
+      objectReference: {fileID: 2815863635841806981}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
+--- !u!114 &2473984576932125736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5886605791624287226, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
+  m_PrefabInstance: {fileID: 8350860194016677842}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a469156687b77645ac03dd7680be8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8064044835312715797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2021281804244420551, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
