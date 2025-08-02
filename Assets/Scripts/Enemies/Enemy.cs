@@ -12,7 +12,8 @@ public class Enemy : Unit
     [SerializeField] float attackRange = 7f;
     [SerializeField] Transform[] patrolPoints;
     [SerializeField] Light2D hitFX;
-
+    [SerializeField] float deaggroThreshold = 1;
+    
     private Coroutine blinkRoutine;
     private Transform player => Player.instance.transform;
     private Rigidbody2D rb;
@@ -22,6 +23,8 @@ public class Enemy : Unit
 
     public int currentPatrolIndex = 0;
 
+    
+    
     protected override void Start()
     {
         initialPosition = transform.position;
@@ -40,28 +43,56 @@ public class Enemy : Unit
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        /*if (CanSee(Player.instance))
+        {
+            if (distanceToPlayer < attackRange)
+            {
+                Attack();
+            }
+            else
+            {
+                ChasePlayer();
+            }
+        }
+        else
+        {
+            Patrol();
+        }*/
+        
         switch (currentState)
         {
             case State.Patrol:
-                Patrol();
                 if (CanSee(Player.instance))
                     ChangeState(State.Chase);
                 break;
 
             case State.Chase:
-                ChasePlayer();
                 if (distanceToPlayer < attackRange && CanSee(Player.instance))
                     ChangeState(State.Attack);
-                else if (!CanSee(Player.instance))
+                else if (!CanSee(Player.instance, deaggroThreshold))
                     ChangeState(State.Patrol);
                 break;
 
             case State.Attack:
-                Attack();
-                if (!CanSee(Player.instance))
+                if (!CanSee(Player.instance, deaggroThreshold * 2))
                     ChangeState(State.Patrol);
-                else if (distanceToPlayer > attackRange)
+                else if (distanceToPlayer > attackRange + deaggroThreshold)
                     ChangeState(State.Chase);
+                break;
+        }
+        
+        switch (currentState)
+        {
+            case State.Patrol:
+                Patrol();
+                break;
+
+            case State.Chase:
+                ChasePlayer();
+                break;
+
+            case State.Attack:
+                Attack();
                 break;
         }
     }
@@ -101,11 +132,11 @@ public class Enemy : Unit
         TryAttacking();
     }
 
-    bool CanSee(Targetable target)
+    bool CanSee(Targetable target, float threshold = 0f)
     {
         //Check range
-        float distance = Vector3.Distance(target.transform.position, transform.position);
-        if(distance >= visionRange) return false;
+        float distance = Vector3.Distance(target.transform.position, transform.position) - threshold;
+        if(distance >= Mathf.Min(visionRange, attackRange)) return false;
 
         //Check line of sight (if there is something in the way)
         Vector2 direction = (target.transform.position - transform.position).normalized;

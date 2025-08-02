@@ -872,6 +872,7 @@ MonoBehaviour:
   attackRange: 7
   patrolPoints: []
   hitFX: {fileID: 4592128031072895946}
+  deaggroThreshold: 1
   currentPatrolIndex: 0
 --- !u!50 &5202806467270112898
 Rigidbody2D:
