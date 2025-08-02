@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8772046175343540942}
-  - component: {fileID: 5153122710596996390}
+  - component: {fileID: 1366937634576776521}
   - component: {fileID: 2105427143233736703}
   - component: {fileID: 5174338333424033827}
   - component: {fileID: 4197563703940831998}
@@ -226,7 +226,7 @@ Transform:
   - {fileID: 7191973718081806194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5153122710596996390
+--- !u!114 &1366937634576776521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4901378018650876572}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d285e0a7b902aee4490bab459698ec8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e92d16158de2b94bac87ef79396c234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shotBy: {fileID: 0}
@@ -243,9 +243,7 @@ MonoBehaviour:
   damage: 100
   impactEffect: {fileID: 6703802995573317059, guid: 85efb82ac0e00c341847ce191aa61ec4, type: 3}
   timeToChangeSprite: 0.5
-  sprites:
-  - {fileID: 4759762265922630450, guid: 49b386d9bc2cd0d4bb04d6009907dc2b, type: 3}
-  - {fileID: -5462401187296360709, guid: 49b386d9bc2cd0d4bb04d6009907dc2b, type: 3}
+  sprites: []
 --- !u!114 &2105427143233736703
 MonoBehaviour:
   m_ObjectHideFlags: 0
