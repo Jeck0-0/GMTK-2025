@@ -865,6 +865,7 @@ MonoBehaviour:
   isDead: 0
   isVulnerable: 1
   weapon: {fileID: 6107448148862161796}
+  damageClip: {fileID: 8300000, guid: bf3559e7ca1c1934caa16a5d323a9511, type: 3}
   anim: {fileID: 2051362181920203819}
   moveSpeed: 5
   visionRange: 15

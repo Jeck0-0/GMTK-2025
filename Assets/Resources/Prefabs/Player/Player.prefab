@@ -695,6 +695,10 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 2815863635841806981}
+    - target: {fileID: 5886605791624287226, guid: 268f1ac674d9cc24b95876c731427a97, type: 3}
+      propertyPath: startAmmo
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

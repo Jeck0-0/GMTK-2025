@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class Enemy : Unit
 {
+    [SerializeField] AudioClip damageClip;
     [SerializeField] Animator anim;
     [SerializeField] float moveSpeed = 2f;
     [SerializeField] float visionRange = 10f;
@@ -134,12 +135,8 @@ public class Enemy : Unit
 
         currentHealth -= amount;
 
-        if (currentHealth <= 0)
-        {
-            Die();
-            return;
-        }
-
+        if (damageClip)
+        AudioManager.Instance.PlaySound(damageClip, 0.7f, transform);
 
         if (blinkRoutine != null)
         {
@@ -147,6 +144,12 @@ public class Enemy : Unit
             if (hitFX) hitFX.enabled = false;
         }
         blinkRoutine = StartCoroutine(Blink());
+
+        if (currentHealth <= 0)
+        {
+            Invoke("Die", 0.1f);
+            return;
+        }
     }
     public override void Die()
     {
@@ -162,6 +165,8 @@ public class Enemy : Unit
         transform.position = initialPosition;
         transform.rotation = Quaternion.identity;
         StopAllCoroutines();
+
+        if (hitFX) hitFX.enabled = false;
         gameObject.SetActive(true);
         currentHealth = maxHealth;
         isDead = false;
