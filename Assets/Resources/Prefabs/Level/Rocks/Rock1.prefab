@@ -139,22 +139,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 6.35, y: 3.7}
-      - {x: 6.05, y: 3.8}
-      - {x: -0.15, y: 3.8}
-      - {x: -3.8500001, y: 3.4}
-      - {x: -4.25, y: 3}
-      - {x: -5.9500003, y: -0.2}
-      - {x: -6.35, y: -1.2}
-      - {x: -6.35, y: -2.7}
-      - {x: -5.9500003, y: -3}
-      - {x: -2.8500001, y: -3.1000001}
-      - {x: -0.15, y: -3.7}
-      - {x: 0.85, y: -3.8}
-      - {x: 4.05, y: -3.8}
-      - {x: 4.55, y: -3.3}
-      - {x: 4.75, y: -1}
-      - {x: 6.35, y: 2}
+    - - {x: 6.32, y: 3.31}
+      - {x: 5.24, y: 3.73}
+      - {x: -0.21, y: 3.56}
+      - {x: -3.82, y: 3.04}
+      - {x: -4.11, y: 2.7}
+      - {x: -5.64, y: -0.2}
+      - {x: -6.06, y: -1.2}
+      - {x: -6.3, y: -2.28}
+      - {x: -5.78, y: -2.65}
+      - {x: -2.75, y: -2.85}
+      - {x: -0.17, y: -3.3}
+      - {x: 1.43, y: -3.63}
+      - {x: 3.63, y: -3.8}
+      - {x: 4.19, y: -3.3}
+      - {x: 4.35, y: -1}
+      - {x: 6.07, y: 2}
   m_UseDelaunayMesh: 0
 --- !u!114 &1196872794223597244
 MonoBehaviour:
@@ -178,36 +178,36 @@ MonoBehaviour:
   m_AlphaCutoff: 0.1
   m_ApplyToSortingLayers: a9aea73f0000000021617c93b5423aef
   m_ShapePath:
-  - {x: -6.3500004, y: -3.8, z: 0}
-  - {x: -6.3500004, y: 3.7999997, z: 0}
-  - {x: 6.35, y: 3.7999997, z: 0}
+  - {x: -6.35, y: -3.8, z: 0}
+  - {x: -6.35, y: 3.8, z: 0}
+  - {x: 6.35, y: 3.8, z: 0}
   - {x: 6.35, y: -3.8, z: 0}
   m_ShapePathHash: 0
   m_InstanceId: 0
-  m_ShadowShape2DComponent: {fileID: 2712834860987466755}
+  m_ShadowShape2DComponent: {fileID: 4729629868770416805}
   m_ShadowShape2DProvider:
-    rid: 857243090346836201
+    rid: 857243090346836292
   m_ShadowCastingSource: 2
   m_ShadowMesh:
     m_Mesh: {fileID: 0}
     m_LocalBounds:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 6.049988, y: 3.4999847, z: 0}
+      m_Center: {x: 0.009094238, y: -0.033805847, z: 0}
+      m_Extent: {x: 6.1970825, y: 3.6632156, z: 0}
     m_EdgeProcessing: 1
-    m_TrimEdge: 0.3
+    m_TrimEdge: 0.1
     m_FlipX: 0
     m_FlipY: 0
     m_InitialTrim: 0
   m_CastingOption: 1
-  m_PreviousTrimEdge: 0.3
+  m_PreviousTrimEdge: 0.1
   m_PreviousEdgeProcessing: 1
   m_PreviousShadowCastingSource: 2
-  m_PreviousShadowShape2DSource: {fileID: 2712834860987466755}
+  m_PreviousShadowShape2DSource: {fileID: 4729629868770416805}
   references:
     version: 2
     RefIds:
-    - rid: 857243090346836201
-      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+    - rid: 857243090346836292
+      type: {class: ShadowShape2DProvider_Collider2D, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
       data: 
 --- !u!1001 &131745005470679508
 PrefabInstance:
