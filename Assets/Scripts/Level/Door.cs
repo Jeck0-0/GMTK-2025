@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : Resetable, IInteractable
 {
     [SerializeField] GameObject VictoryCollider;
     [SerializeField] bool open;
@@ -20,5 +20,14 @@ public class Door : MonoBehaviour, IInteractable
     {
         anim.SetBool("Open", true);
         VictoryCollider.SetActive(true);
+    }
+    public override void OnReset()
+    {
+        base.OnReset();
+        if (open) return;
+
+        VictoryCollider.SetActive(false);
+        anim.SetBool("Open", false);
+        StopAllCoroutines();
     }
 }

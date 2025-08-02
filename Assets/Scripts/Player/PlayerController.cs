@@ -21,7 +21,7 @@ namespace TarodevController
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
         private bool blockImput = false;
-        public void BlockImput(bool imput) { blockImput = imput; }
+        public void BlockImput(bool imput) { blockImput = imput; _frameInput.Move.x = 0; }
 
         #region Interface
 
