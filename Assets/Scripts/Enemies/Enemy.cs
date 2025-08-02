@@ -50,21 +50,26 @@ public class Enemy : Unit
 
             case State.Chase:
                 ChasePlayer();
-                if (distanceToPlayer < attackRange)
+                if (distanceToPlayer < attackRange && CanSee(Player.instance))
                     ChangeState(State.Attack);
-                else if (distanceToPlayer > visionRange)
+                else if (!CanSee(Player.instance))
                     ChangeState(State.Patrol);
                 break;
 
             case State.Attack:
                 Attack();
-                if (distanceToPlayer > attackRange)
+                if (!CanSee(Player.instance))
+                    ChangeState(State.Patrol);
+                else if (distanceToPlayer > attackRange)
                     ChangeState(State.Chase);
                 break;
         }
     }
     private void ChangeState(State state)
     {
+        if (currentState == state)
+            return;
+        
         if(anim)
         anim.SetBool("Moving", false);
         currentState = state;
@@ -89,7 +94,10 @@ public class Enemy : Unit
 
     void Attack()
     {
-        weapon.transform.right = (Player.instance.transform.position - transform.position).normalized;
+        var dir = (Player.instance.transform.position - transform.position).normalized;
+        weapon.transform.right = dir;
+        FlipSprite(dir.x);
+        AdjustWeaponRotation(true);
         TryAttacking();
     }
 
@@ -102,8 +110,8 @@ public class Enemy : Unit
         //Check line of sight (if there is something in the way)
         Vector2 direction = (target.transform.position - transform.position).normalized;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, direction, distance);
-        
-        return hit.All(x=>x.collider.GetComponent<Targetable>() != null);
+
+        return hit.All(x => x.collider.isTrigger || x.collider.GetComponent<Targetable>() != null);
     }
     
     void MoveTowards(Vector2 target)
@@ -113,28 +121,31 @@ public class Enemy : Unit
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         FlipSprite(direction.x);
+        AdjustWeaponRotation(false);
     }
 
     void FlipSprite(float directionX)
     {
         if (directionX != 0)
         transform.localScale = new Vector3(Mathf.Sign(-directionX), 1, 1);
-        FlipWeaponVisuals(directionX);
     }
-    private void FlipWeaponVisuals(float directionX)
+    
+    private void AdjustWeaponRotation(bool forceDirection)
     {
         Vector3 localScale = weapon.transform.localScale;
 
-        if (directionX < 0)
-        localScale.x = -Mathf.Abs(localScale.x);
-        else
-        localScale.x = Mathf.Abs(localScale.x);
-
-        if (directionX < 0)
-        localScale.y = -Mathf.Abs(localScale.y);
-        else
-        localScale.y = Mathf.Abs(localScale.y);
-
+        bool weaponRight = weapon.transform.right.x > 0;
+        bool facingRight = transform.localScale.x > 0;
+            
+        bool flipX = facingRight;
+        bool flipY = !weaponRight;
+        
+        if(!forceDirection)
+            flipX = !weaponRight;
+        
+        localScale.x = Mathf.Abs(localScale.x) * (flipX ? -1 : 1);
+        localScale.y = Mathf.Abs(localScale.y) * (flipY ? -1 : 1);
+        
         weapon.transform.localScale = localScale;
     }
     private IEnumerator Blink()
