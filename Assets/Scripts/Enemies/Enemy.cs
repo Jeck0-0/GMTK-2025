@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -12,7 +13,7 @@ public class Enemy : Unit
     [SerializeField] Light2D hitFX;
 
     private Coroutine blinkRoutine;
-    private Transform player;
+    private Transform player => Player.instance.transform;
     private Rigidbody2D rb;
 
     private enum State { Idle, Patrol, Chase, Attack }
@@ -25,7 +26,6 @@ public class Enemy : Unit
         initialPosition = transform.position;
         LoopManager.Instance.OnGameReset += OnReset;
         rb = GetComponent<Rigidbody2D>();
-        player = Player.instance.transform;
         if (hitFX) hitFX.enabled = false;
     }
 
@@ -43,22 +43,22 @@ public class Enemy : Unit
         {
             case State.Patrol:
                 Patrol();
-                if (distanceToPlayer < visionRange)
-                ChangeState(State.Chase);
+                if (CanSee(Player.instance))
+                    ChangeState(State.Chase);
                 break;
 
             case State.Chase:
                 ChasePlayer();
                 if (distanceToPlayer < attackRange)
-                ChangeState(State.Attack);
+                    ChangeState(State.Attack);
                 else if (distanceToPlayer > visionRange)
-                ChangeState(State.Patrol);
+                    ChangeState(State.Patrol);
                 break;
 
             case State.Attack:
                 Attack();
                 if (distanceToPlayer > attackRange)
-                ChangeState(State.Chase);
+                    ChangeState(State.Chase);
                 break;
         }
     }
@@ -92,10 +92,23 @@ public class Enemy : Unit
         TryAttacking();
     }
 
+    bool CanSee(Targetable target)
+    {
+        //Check range
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        if(distance >= visionRange) return false;
+
+        //Check line of sight (if there is something in the way)
+        Vector2 direction = (target.transform.position - transform.position).normalized;
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, direction, distance);
+        
+        return hit.All(x=>x.collider.GetComponent<Targetable>() != null);
+    }
+    
     void MoveTowards(Vector2 target)
     {
         if (anim)
-        anim.SetBool("Moving", true);
+            anim.SetBool("Moving", true);
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         FlipSprite(direction.x);
@@ -105,6 +118,7 @@ public class Enemy : Unit
     {
         if (directionX != 0)
         transform.localScale = new Vector3(Mathf.Sign(-directionX), 1, 1);
+        FlipWeaponVisuals(directionX);
     }
     private IEnumerator Blink()
     {
