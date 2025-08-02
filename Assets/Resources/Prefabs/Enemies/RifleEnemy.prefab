@@ -822,7 +822,7 @@ GameObject:
   - component: {fileID: 5768764352216351150}
   - component: {fileID: 5202806467270112898}
   - component: {fileID: 3652809232812999405}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RifleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -872,6 +872,7 @@ MonoBehaviour:
   attackRange: 7
   patrolPoints: []
   hitFX: {fileID: 4592128031072895946}
+  currentPatrolIndex: 0
 --- !u!50 &5202806467270112898
 Rigidbody2D:
   serializedVersion: 5
@@ -885,7 +886,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 0.5
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -894,7 +895,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1

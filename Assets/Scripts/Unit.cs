@@ -23,20 +23,6 @@ public class Unit : Targetable
     {
         weapon?.TryAttacking();
     }
-
-
-    protected void FlipWeaponVisuals(float directionX)
-    {
-        Vector3 localScale = weapon.transform.localScale;
-
-        if (directionX < 0)
-            localScale.y = -Mathf.Abs(localScale.y);
-        else
-            localScale.y = Mathf.Abs(localScale.y);
-
-        weapon.transform.localScale = localScale;
-    }
-    
     
     public void PickupWeapon(Weapon newWeapon)
     {

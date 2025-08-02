@@ -20,7 +20,7 @@ public class Enemy : Unit
     private enum State { Idle, Patrol, Chase, Attack }
     private State currentState = State.Patrol;
 
-    private int currentPatrolIndex = 0;
+    public int currentPatrolIndex = 0;
 
     protected override void Start()
     {
@@ -77,7 +77,7 @@ public class Enemy : Unit
         Transform targetPoint = patrolPoints[currentPatrolIndex];
         MoveTowards(targetPoint.position);
 
-        if (Vector2.Distance(transform.position, targetPoint.position) < 0.1f)
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.4f)
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 
@@ -109,7 +109,7 @@ public class Enemy : Unit
     void MoveTowards(Vector2 target)
     {
         if (anim)
-            anim.SetBool("Moving", true);
+        anim.SetBool("Moving", true);
         Vector2 direction = (target - (Vector2)transform.position).normalized;
         rb.linearVelocity = new Vector2(direction.x * moveSpeed, rb.linearVelocity.y);
         FlipSprite(direction.x);
@@ -120,6 +120,22 @@ public class Enemy : Unit
         if (directionX != 0)
         transform.localScale = new Vector3(Mathf.Sign(-directionX), 1, 1);
         FlipWeaponVisuals(directionX);
+    }
+    private void FlipWeaponVisuals(float directionX)
+    {
+        Vector3 localScale = weapon.transform.localScale;
+
+        if (directionX < 0)
+        localScale.x = -Mathf.Abs(localScale.x);
+        else
+        localScale.x = Mathf.Abs(localScale.x);
+
+        if (directionX < 0)
+        localScale.y = -Mathf.Abs(localScale.y);
+        else
+        localScale.y = Mathf.Abs(localScale.y);
+
+        weapon.transform.localScale = localScale;
     }
     private IEnumerator Blink()
     {
