@@ -20,6 +20,8 @@ namespace TarodevController
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
+        private bool blockImput = false;
+        public void BlockImput(bool imput) { blockImput = imput; }
 
         #region Interface
 
@@ -37,11 +39,15 @@ namespace TarodevController
             _col = GetComponent<CapsuleCollider2D>();
 
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
+            blockImput = false;
         }
 
         private void Update()
         {
             _time += Time.deltaTime;
+
+            if (blockImput) return;
+
             GatherInput();
         }
 
