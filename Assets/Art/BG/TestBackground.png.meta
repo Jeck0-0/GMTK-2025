@@ -49,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -106,10 +106,10 @@ TextureImporter:
       name: TestBackground_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 173
-        width: 961
-        height: 147
+        x: 72
+        y: 237
+        width: 127
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: TestBackground_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 963
-        height: 112
+        x: 213
+        y: 220
+        width: 82
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,6 +142,182 @@ TextureImporter:
       bones: []
       spriteID: 5ed7fe503ce0e3450800000000000000
       internalID: 6070305578523000293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_2
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 274
+        width: 166
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e85dcacce51be4bae15c2097aad2e4
+      internalID: 101357091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_3
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 154
+        width: 127
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe032cba5eaa6fd4494597e456f72d82
+      internalID: 310056759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_4
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 115
+        width: 161
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d32f2f002447004682b5e4d6be027b9
+      internalID: -1754461368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_5
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 161
+        width: 112
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: babec38f6255918488dfcc284a99c178
+      internalID: -914036355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_6
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 10
+        width: 115
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba0341b957e10342a19a423ba110502
+      internalID: 865851488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 16
+        width: 88
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f634677f0375fcf4eac6bac5e2ddccc1
+      internalID: 1897264299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_8
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 19
+        width: 85
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9729924166da124bb02999bc0da90e8
+      internalID: -1276628303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TestBackground_9
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 14
+        width: 57
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dcc13ee4c86f7e4bb9863aef9bc3814
+      internalID: -966563638
       vertices: []
       indices: 
       edges: []
@@ -158,10 +334,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       TestBackground_0: 5448319050624374926
       TestBackground_1: 6070305578523000293
+      TestBackground_2: 101357091
+      TestBackground_3: 310056759
+      TestBackground_4: -1754461368
+      TestBackground_5: -914036355
+      TestBackground_6: 865851488
+      TestBackground_7: 1897264299
+      TestBackground_8: -1276628303
+      TestBackground_9: -966563638
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

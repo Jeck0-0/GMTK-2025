@@ -3,6 +3,7 @@ using UnityEngine;
 public class BackgroundItem : MonoBehaviour
 {
     [SerializeField] public SpriteRenderer icon;
+    public float multiplier = 1f;
 
     [SerializeField] public Gradient colorGradient;
     [SerializeField] public AnimationCurve alphaCurve;
@@ -12,20 +13,16 @@ public class BackgroundItem : MonoBehaviour
 
     public float colorGradientDistance = 10;
 
-    /*public override void ManagedUpdate()
+    public void LateUpdate()
     {
-        var cursorPos = Helpers.Camera.ScreenToWorldPoint(Input.mousePosition);
-        cursorPos.z = transform.position.z;
-
+        var cursorPos = Player.instance.transform.position;
+        
         var dir = (cursorPos - transform.position).normalized;
-        var dist = Vector3.Distance(transform.position, cursorPos);
+        var dist = Vector3.Distance(transform.position, cursorPos)  * multiplier;
 
         icon.transform.localScale = Vector3.one * scaleCurve.Evaluate(dist);
-
-        //icon.transform.rotation = Quaternion.Euler(0, 0, rotationCurve.Evaluate(dist) * 90);
-
+        icon.transform.localRotation = Quaternion.Euler(0, 0, rotationCurve.Evaluate(dist) * 90);
         icon.transform.localPosition = dir * positionCurve.Evaluate(dist);
-
-        icon.color = colorGradient.Evaluate(dist / colorMaxDist);
-    }*/
+        icon.color = colorGradient.Evaluate(dist / colorGradientDistance);
+    }
 }

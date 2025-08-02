@@ -15,12 +15,12 @@ public class BGIconSpawner : MonoBehaviour
     [SerializeField, ColorPalette] protected Color color = new Color(0.4627451f, 0.2588235f, 0.5411765f); 
     void Start()
     {
-        col = color;
+        //col = color;
         SpawnTiles();
     }
 
 
-    private void LateUpdate()
+    /*private void LateUpdate()
     {
         UpdateTiles();
     }
@@ -51,7 +51,7 @@ public class BGIconSpawner : MonoBehaviour
         item.icon.transform.localPosition = dir * item.positionCurve.Evaluate(dist);
 
         item.icon.color = item.colorGradient.Evaluate(dist / item.colorGradientDistance);
-    }
+    }*/
 
     protected virtual void SpawnTiles()
     {
