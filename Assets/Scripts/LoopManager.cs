@@ -15,15 +15,19 @@ public class LoopManager : Singleton<LoopManager>
 
     private float runTime = 0f;
     private float inputTime = 0f;
-
+    private bool reloadingScene = false;
     void Update()
     {
+        
         if (Input.GetKey(KeyCode.R))
         {
             inputTime += Time.deltaTime;
-            if (inputTime > 1f)
+            if (inputTime > 1f && !reloadingScene)
             {
                 SceneLoader.Instance.LoadScene(SceneManager.GetActiveScene().name);
+                inputTime = 0f;
+                reloadingScene = true;
+                return;
             }
         }
         if (Input.GetKeyUp(KeyCode.R))
