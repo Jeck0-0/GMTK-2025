@@ -49,8 +49,8 @@ MonoBehaviour:
   multiplier: 0.2
   colorGradient:
     serializedVersion: 2
-    key0: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0}
-    key1: {r: 0.44313726, g: 0.34509805, b: 0.3557239, a: 0.7254902}
+    key0: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 0.70980394}
+    key1: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
     key2: {r: 0, g: 0, b: 0, a: 0.1882353}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -65,8 +65,8 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 9445
-    atime1: 12914
+    atime0: 12914
+    atime1: 65535
     atime2: 65535
     atime3: 0
     atime4: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_Mode: 0
     m_ColorSpace: 0
     m_NumColorKeys: 2
-    m_NumAlphaKeys: 3
+    m_NumAlphaKeys: 2
   alphaCurve:
     serializedVersion: 2
     m_Curve:
@@ -164,7 +164,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  colorGradientDistance: 15
+  colorGradientDistance: 30
 --- !u!1 &5760849433128882748
 GameObject:
   m_ObjectHideFlags: 0
