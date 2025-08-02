@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2414865710235875830, guid: 1dfee62df3137b34a8aeebf359adc3fd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.87
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2414865710235875830, guid: 1dfee62df3137b34a8aeebf359adc3fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.92
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2414865710235875830, guid: 1dfee62df3137b34a8aeebf359adc3fd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: -914036355, guid: 0ec4706b3f78f71468e8a64a7b82a6b2, type: 3}
     - target: {fileID: 7559001986129644231, guid: 1dfee62df3137b34a8aeebf359adc3fd, type: 3}
       propertyPath: m_Name
-      value: Rock4 Variant
+      value: Rock4
       objectReference: {fileID: 0}
     - target: {fileID: 9021162977040690825, guid: 1dfee62df3137b34a8aeebf359adc3fd, type: 3}
       propertyPath: m_Sprite
