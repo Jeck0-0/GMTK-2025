@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class LoopManager : Singleton<LoopManager>
 {
@@ -13,11 +14,23 @@ public class LoopManager : Singleton<LoopManager>
     public event Action OnGameReset;
 
     private float runTime = 0f;
+    private float inputTime = 0f;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        ResetLevel();
+        if (Input.GetKey(KeyCode.R))
+        {
+            inputTime += Time.deltaTime;
+            if (inputTime > 1f)
+            {
+                SceneLoader.Instance.LoadScene(SceneManager.GetActiveScene().name);
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            ResetLevel();
+            inputTime = 0f;
+        }
 
         runTime += Time.deltaTime;
     }

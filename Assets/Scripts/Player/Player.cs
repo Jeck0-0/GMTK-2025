@@ -44,7 +44,7 @@ public class Player : Unit
     public override void Die()
     {
         gameObject.SetActive(false);
-        LoopManager.Instance.ResetLevel();
+        PlayerUI.Instance.SetDeathScreen(true);
     }
     public override void OnReset()
     {
@@ -54,5 +54,6 @@ public class Player : Unit
         gameObject.SetActive(true);
         currentHealth = maxHealth;
         isDead = false;
+        PlayerUI.Instance.SetDeathScreen(false);
     }
 }

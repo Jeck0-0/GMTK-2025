@@ -49,7 +49,7 @@ public class LoopPortal : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, rotation);
 
-        if (bullet.TryGetComponent(out Projectile proj))
+        if (bullet.TryGetComponent(out Loopbullet proj))
         {
             proj.Initialize(damage: 100f, speed: 16f, duration: 5f); // Customize as needed
         }

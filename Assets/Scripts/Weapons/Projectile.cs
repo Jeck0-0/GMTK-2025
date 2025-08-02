@@ -56,7 +56,7 @@ public class Projectile : Resetable
             return;
         }
 
-        if (collision.TryGetComponent(out Projectile proj))
+        if (collision.TryGetComponent(out Loopbullet proj))
         {
             damage -= proj.damage;
             if(damage <= 0)

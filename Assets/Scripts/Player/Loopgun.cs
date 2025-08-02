@@ -58,7 +58,7 @@ public class Loopgun : Weapon
             if(recordShots)
             LoopManager.Instance.RecordShot(firePoint.position, firePoint.right);
             var go = Instantiate(projectilePrefab, firePoint.position, GetProjectileDirection());
-            var proj = go.GetComponent<Projectile>();
+            var proj = go.GetComponent<Loopbullet>();
             InitializeProjectile(proj);
         }
         nextShotMinTime = Time.time + attackSpeed;
@@ -67,7 +67,7 @@ public class Loopgun : Weapon
     }
 
     //inheriting classes can override this to make it easier to have different types of projectiles
-    protected virtual void InitializeProjectile(Projectile projectile)
+    protected virtual void InitializeProjectile(Loopbullet projectile)
     {
         projectile.Initialize(damage, GetProjectileSpeed(), projectileLifetime, owner);
     }
