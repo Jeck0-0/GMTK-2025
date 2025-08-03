@@ -98,5 +98,6 @@ public class Loopgun : Weapon
         chargeBar.SetActive(true);
         currentAmmo = startAmmo;
         StopAllCoroutines();
+        PlayerUI.Instance.UpdateAmmo(currentAmmo);
     }
 }
