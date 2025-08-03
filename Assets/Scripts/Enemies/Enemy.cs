@@ -67,7 +67,7 @@ public class Enemy : Unit
                 break;
 
             case State.Chase:
-                if (distanceToPlayer < attackRange && CanSee(Player.instance))
+                if (distanceToPlayer < visionRange && CanSee(Player.instance))
                     ChangeState(State.Attack);
                 else if (!CanSee(Player.instance, deaggroThreshold))
                     ChangeState(State.Patrol);
@@ -136,7 +136,7 @@ public class Enemy : Unit
     {
         //Check range
         float distance = Vector3.Distance(target.transform.position, transform.position) - threshold;
-        if(distance >= Mathf.Min(visionRange, attackRange)) return false;
+        if(distance >= Mathf.Min(visionRange)) return false;
 
         //Check line of sight (if there is something in the way)
         Vector2 direction = (target.transform.position - transform.position).normalized;

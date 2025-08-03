@@ -3,6 +3,8 @@ using UnityEngine;
 public class Player : Unit
 {
     public static Player instance;
+    private float inputTime;
+    private bool pressedESC = false;
 
     protected override void Awake()
     {
@@ -28,6 +30,29 @@ public class Player : Unit
 
         if (Input.GetMouseButton(0))
         TryAttacking();
+
+        #region ESC
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pressedESC)
+            {
+                SceneLoader.Instance.LoadScene("MainMenu");
+                return;
+            }
+            pressedESC = true;
+            PlayerUI.Instance.SetESCHint(true);
+        }
+        if (pressedESC)
+        {
+            inputTime += Time.deltaTime;
+            if (inputTime >= 3f)
+            {
+                pressedESC = false;
+                PlayerUI.Instance.SetESCHint(false);
+                inputTime = 0f;
+            }
+        }
+        #endregion
     }
     private void FlipWeaponVisuals(float directionX)
     {

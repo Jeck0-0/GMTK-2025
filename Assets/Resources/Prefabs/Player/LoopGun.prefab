@@ -83,6 +83,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   shotSound: {fileID: 8300000, guid: fa4d56b4aeb6f5242a6800d64f3c8d15, type: 3}
   projectilePrefab: {fileID: 4901378018650876572, guid: b0a114232e2d9e64f86493005074018f, type: 3}
+  chargeBar: {fileID: 5633175754527682423}
   firePoint: {fileID: 7247713487893632335}
   damage: 100
   attackSpeed: 1
@@ -91,8 +92,7 @@ MonoBehaviour:
   projectileDirectionVariation: 0
   projectileLifetime: 3
   projectilesPerShot: 1
-  reloadSpeed: 1
-  maxAmmo: 6
+  startAmmo: 6
   recordShots: 1
   currentAmmo: 0
 --- !u!1 &5633175754527682423

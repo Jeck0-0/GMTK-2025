@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7107542222766548840}
   - component: {fileID: 1688518714570474930}
   m_Layer: 0
-  m_Name: WoodPlank
+  m_Name: LongWoodPlank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -281394507
   m_SortingLayer: 2
   m_SortingOrder: 5
-  m_Sprite: {fileID: -4717935179335262862, guid: f3f14092f05876747bb34649c8f213f6, type: 3}
+  m_Sprite: {fileID: 5083448918329781453, guid: f3f14092f05876747bb34649c8f213f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,11 +126,11 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 0.5}
+    oldSize: {x: 3, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9, y: 0.5}
+  m_Size: {x: 3, y: 0.5}
   m_EdgeRadius: 0

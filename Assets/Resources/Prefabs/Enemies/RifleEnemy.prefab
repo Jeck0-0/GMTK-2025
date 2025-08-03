@@ -1200,7 +1200,7 @@ MonoBehaviour:
   firePoint: {fileID: 2614816448714123458}
   damage: 50
   attackSpeed: 1
-  projectileSpeed: 11
+  projectileSpeed: 12
   projectileSpeedVariation: 1
   projectileDirectionVariation: 0.05
   projectileLifetime: 2

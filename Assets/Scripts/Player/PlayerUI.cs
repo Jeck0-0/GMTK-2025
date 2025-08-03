@@ -6,6 +6,7 @@ public class PlayerUI : Singleton<PlayerUI>
     [SerializeField] TextMeshProUGUI ammoCounter;
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject reloadHint;
+    [SerializeField] GameObject ESCHint;
 
     public void UpdateAmmo(int ammo)
     {
@@ -23,5 +24,9 @@ public class PlayerUI : Singleton<PlayerUI>
     {
         reloadHint.SetActive(false);
         deathScreen.SetActive(on);
+    }
+    public void SetESCHint(bool on)
+    {
+        ESCHint.SetActive(on);
     }
 }

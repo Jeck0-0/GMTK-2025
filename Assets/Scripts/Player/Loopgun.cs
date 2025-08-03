@@ -5,6 +5,7 @@ public class Loopgun : Weapon
 {
     [SerializeField] AudioClip shotSound;
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] GameObject chargeBar;
     [SerializeField] Transform firePoint;
     private MuzzleFlash muzzleFlash;
 
@@ -62,7 +63,11 @@ public class Loopgun : Weapon
             InitializeProjectile(proj);
         }
         nextShotMinTime = Time.time + attackSpeed;
+
         currentAmmo--;
+        if (currentAmmo <= 0)
+        chargeBar.SetActive(false);
+
         PlayerUI.Instance.UpdateAmmo(currentAmmo);
     }
 
@@ -90,6 +95,7 @@ public class Loopgun : Weapon
 
     private void OnReset()
     {
+        chargeBar.SetActive(true);
         currentAmmo = startAmmo;
         StopAllCoroutines();
     }
