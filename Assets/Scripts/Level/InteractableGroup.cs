@@ -23,6 +23,14 @@ public class InteractableGroup : Resetable, IInteractable
 
     public void ResetObject()
     {
+        activated--;
+        if(activated < requiredAmount)
+            interactables.ForEach(interactable => interactable.GetComponent<IInteractable>()?.ResetObject());
+    }
+
+    public override void OnReset()
+    {
         activated = 0;
+        base.OnReset();
     }
 }

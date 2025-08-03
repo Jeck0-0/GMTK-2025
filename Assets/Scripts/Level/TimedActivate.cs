@@ -9,6 +9,8 @@ public class TimedActivate : Resetable, IInteractable
     public float duration = 1;
     private bool active;
 
+    public bool disableInteractablesOnReset = true;
+    
     private Coroutine resetCoroutine;
     
     public void Interact()
@@ -29,6 +31,9 @@ public class TimedActivate : Resetable, IInteractable
     
     public void ResetObject()
     {
-        StopCoroutine(resetCoroutine);
+        if(resetCoroutine != null)
+            StopCoroutine(resetCoroutine);
+        if(disableInteractablesOnReset)
+            interactables.ForEach(x => x.GetComponent<IInteractable>()?.ResetObject());
     }
 }

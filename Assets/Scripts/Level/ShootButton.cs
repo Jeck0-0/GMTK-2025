@@ -31,11 +31,30 @@ public class ShootButton : Resetable, IInteractable
             interactable.GetComponent<IInteractable>().Interact();
         }
 
-        if(resetAfterTime)
-        Invoke("ResetObject", timeToReset);
+        if (resetAfterTime)
+            StartCoroutine(ResetAfterTime());
     }
-    public void ResetObject()
+
+
+    private float resetTime;
+    private float flickerTime;
+    private bool flickerOn;
+    IEnumerator ResetAfterTime()
     {
+        resetTime = Time.time + timeToReset;
+        flickerTime = Time.time + .2f;
+        while (Time.time < resetTime)
+        {
+            if (Time.time >= flickerTime)
+            {
+                eyeLight.enabled = flickerOn;
+                eye.color = flickerOn ? Color.red : Color.gray3;
+                flickerOn = !flickerOn;
+                flickerTime = Time.time + .2f;
+            }
+            yield return null;
+        }
+        
         canInteract = true;
         eyeLight.enabled = false;
         eye.color = Color.white;
@@ -45,6 +64,8 @@ public class ShootButton : Resetable, IInteractable
             interactable.GetComponent<IInteractable>().ResetObject();
         }
     }
+    
+    
     private IEnumerator Blink()
     {
         if (hitFX == null) yield break;
@@ -52,6 +73,12 @@ public class ShootButton : Resetable, IInteractable
         yield return new WaitForSeconds(0.1f);
         hitFX.enabled = false;
     }
+    
+    public void ResetObject()
+    {
+        OnReset();
+    }
+    
     public override void OnReset()
     {
         StopAllCoroutines();

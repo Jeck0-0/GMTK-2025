@@ -14,8 +14,11 @@ public class MovingPlatform : Resetable, IInteractable
     public float stopDuration;
     public float speed;
 
+    private Vector3 startPos;
+    
     private void Awake()
     {
+        startPos = moveObject.localPosition;
         if(!moveObject)
             moveObject = transform;
     }
@@ -67,6 +70,12 @@ public class MovingPlatform : Resetable, IInteractable
     public void ResetObject()
     {
         activated = false;
+    }
+
+    public override void OnReset()
+    {
         currentIndex = 0;
+        moveObject.localPosition = startPos;
+        base.OnReset();
     }
 }

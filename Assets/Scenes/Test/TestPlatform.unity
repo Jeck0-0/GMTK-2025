@@ -172,6 +172,14 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
+      propertyPath: timeToReset
+      value: 5.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
+      propertyPath: resetAfterTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
       propertyPath: interactables.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1138,6 +1146,14 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
+      propertyPath: timeToReset
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
+      propertyPath: resetAfterTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5004082678420050081, guid: 6d122e635ef9376409d35365f09b4f24, type: 3}
       propertyPath: interactables.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1195,6 +1211,7 @@ MonoBehaviour:
   interactables:
   - {fileID: 1355836161}
   duration: 3
+  disableInteractablesOnReset: 1
 --- !u!4 &1216754614
 Transform:
   m_ObjectHideFlags: 0
