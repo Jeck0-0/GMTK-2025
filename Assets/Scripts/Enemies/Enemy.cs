@@ -113,7 +113,7 @@ public class Enemy : Unit
         Transform targetPoint = patrolPoints[currentPatrolIndex];
         MoveTowards(targetPoint.position);
 
-        if (Vector2.Distance(transform.position, targetPoint.position) < 0.4f)
+        if (Vector2.Distance(transform.position, targetPoint.position) < 0.45f)
         currentPatrolIndex = (currentPatrolIndex + 1) % patrolPoints.Length;
     }
 

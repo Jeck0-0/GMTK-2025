@@ -76,6 +76,7 @@ public class MovingPlatform : Resetable, IInteractable
     {
         currentIndex = 0;
         moveObject.localPosition = startPos;
+        activated = false;
         base.OnReset();
     }
 }

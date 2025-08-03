@@ -82,7 +82,7 @@ MonoBehaviour:
   - {fileID: 3262881837657986632}
   - {fileID: 7297931282696741091}
   activated: 0
-  loop: 1
+  loop: 0
   stopDuration: 0
   speed: 2.5
 --- !u!1 &6838904480667245998
@@ -146,7 +146,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4628763493499050468}
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -557695765949157329, guid: 92f1d0841e27a0d4abde8e969dff9ad9, type: 3}
+  m_Sprite: {fileID: -3694366394126594001, guid: 92f1d0841e27a0d4abde8e969dff9ad9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
