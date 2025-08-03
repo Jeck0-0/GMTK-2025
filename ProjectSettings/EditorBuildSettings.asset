@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 21bcc32dc8a997640b24d0a079918b5a
   - enabled: 1
-    path: Assets/Scenes/AnotherTestScene.unity
+    path: Assets/Scenes/Test/AnotherTestScene.unity
     guid: b2080f0fd4211354ebfd34f19d126453
   - enabled: 1
-    path: Assets/Scenes/Jeck.unity
+    path: Assets/Scenes/Test/Jeck.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
