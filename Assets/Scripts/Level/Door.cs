@@ -21,6 +21,11 @@ public class Door : Resetable, IInteractable
         anim.SetBool("Open", true);
         VictoryCollider.SetActive(true);
     }
+    public void ResetObject()
+    {
+        anim.SetBool("Open", false);
+        VictoryCollider.SetActive(false);
+    }
     public override void OnReset()
     {
         base.OnReset();
@@ -28,6 +33,7 @@ public class Door : Resetable, IInteractable
 
         VictoryCollider.SetActive(false);
         anim.SetBool("Open", false);
+        anim.SetTrigger("InstaClose");
         StopAllCoroutines();
     }
 }

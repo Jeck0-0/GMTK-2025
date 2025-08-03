@@ -8,6 +8,8 @@ public class ShootButton : Resetable, IInteractable
     [SerializeField] SpriteRenderer eye;
     [SerializeField] Light2D eyeLight;
     [SerializeField] Light2D hitFX;
+    [SerializeField] bool resetAfterTime;
+    [SerializeField] float timeToReset;
     private bool canInteract = true;
 
     void Awake()
@@ -27,6 +29,20 @@ public class ShootButton : Resetable, IInteractable
         foreach (var interactable in interactables)
         {
             interactable.GetComponent<IInteractable>().Interact();
+        }
+
+        if(resetAfterTime)
+        Invoke("ResetObject", timeToReset);
+    }
+    public void ResetObject()
+    {
+        canInteract = true;
+        eyeLight.enabled = false;
+        eye.color = Color.white;
+
+        foreach (var interactable in interactables)
+        {
+            interactable.GetComponent<IInteractable>().ResetObject();
         }
     }
     private IEnumerator Blink()
