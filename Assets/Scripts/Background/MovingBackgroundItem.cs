@@ -15,9 +15,6 @@ public class BackgroundItem : MonoBehaviour
 
     public float colorGradientDistance = 10;
 
-    [SerializeField] bool test = false;
-    [SerializeField] private float multiply = 1;
-    
     public void LateUpdate()
     {
         var cursorPos = Player.instance.transform.position;
