@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 5174338333424033827}
   - component: {fileID: 4197563703940831998}
   - component: {fileID: 6090644185719314803}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LoopShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

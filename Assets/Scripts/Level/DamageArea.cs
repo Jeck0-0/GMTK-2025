@@ -6,7 +6,7 @@ public class DamageArea : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.transform.TryGetComponent(out Player player))
-            player.Damage(damage);
+        if(other.transform.TryGetComponent(out Targetable target))
+        target.Damage(damage);
     }
 }
