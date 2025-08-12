@@ -431,6 +431,7 @@ MonoBehaviour:
   isDead: 0
   isVulnerable: 1
   weapon: {fileID: 2473984576932125736}
+  CameraAnchor: {fileID: 1116147608365197763}
 --- !u!114 &1959533263567271137
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 public class Player : Unit
 {
     public static Player instance;
+    public Transform CameraAnchor; // for camera
     private float inputTime;
     private bool pressedESC = false;
 
