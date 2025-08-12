@@ -63,12 +63,7 @@ public class Loopbullet : Resetable
 
         if (collision.TryGetComponent(out Projectile proj))
         {
-            damage -= proj.damage;
-
-            if (damage <= 0)
-            Impact(collision, false);
-            else Impact(collision, true);
-
+            Impact(collision, true);
             return;
         }
 

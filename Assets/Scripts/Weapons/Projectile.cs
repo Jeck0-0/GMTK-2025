@@ -43,8 +43,8 @@ public class Projectile : Resetable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.gameObject.layer != LayerMask.NameToLayer("Ground"))
-            return;*/
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        return;
 
         if (collision.TryGetComponent(out Targetable targetable))
         {
@@ -53,14 +53,6 @@ public class Projectile : Resetable
             
             targetable.Damage(damage);
             Impact(collision, true);
-            return;
-        }
-
-        if (collision.TryGetComponent(out Loopbullet proj))
-        {
-            damage -= proj.damage;
-            if(damage <= 0)
-            Impact(collision, false);
             return;
         }
         
